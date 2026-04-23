@@ -3,382 +3,1203 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Continuous Advancement — The operating system for mission-driven executive directors</title>
-  <meta name="description" content="A working memory, signal desk, and draft assistant for executive directors of mission-driven organizations. Built around how you actually lead — not how a CRM thinks you should." />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#06070c" />
+  <title>Continuous Advancement — The operating system for the leaders who hold everything</title>
+  <meta name="description" content="A second brain for executive directors of mission-driven organizations. Holds what you carry. Surfaces what's about to die on the vine. Drafts the follow-up you never had time to write." />
+  <link rel="canonical" href="https://continuousadvancement.com/" />
 
-  <!-- Fonts (aligned with The Nest design system) -->
+  <!-- Favicon (inline SVG horizon mark) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='32' height='32' rx='7' fill='%23070810'/%3E%3Ccircle cx='16' cy='16' r='10' stroke='%23e5b776' stroke-width='1.2' fill='none' opacity='0.22'/%3E%3Cpath d='M6 16 A10 10 0 0 1 23 9' stroke='%23e5b776' stroke-width='2.2' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='23' cy='9' r='3' fill='%23f2cd96'/%3E%3Ccircle cx='16' cy='16' r='1.5' fill='%23e5b776' opacity='0.55'/%3E%3C/svg%3E" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.svg" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://continuousadvancement.com/" />
+  <meta property="og:title" content="Continuous Advancement — The operating system for the leaders who hold everything" />
+  <meta property="og:description" content="A second brain for executive directors of mission-driven organizations. Holds what you carry. Surfaces what's about to die on the vine. Drafts the follow-up you never had time to write." />
+  <meta property="og:image" content="https://continuousadvancement.com/og.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Continuous Advancement" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Continuous Advancement" />
+  <meta name="twitter:description" content="A second brain for executive directors. Holds what you carry. Drafts what you haven't had time to write." />
+  <meta name="twitter:image" content="https://continuousadvancement.com/og.svg" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <style>
-    /* ============================================
-       Continuous Advancement — Marketing Site
-       Design tokens inherited from The Nest
-       ============================================ */
-    :root {
-      --bg: #f6f1e7;
-      --bg-warm: #efe6d8;
-      --bg-deeper: #ebe1cf;
-      --surface: #fffaf4;
-      --surface-alt: #fdf6ea;
-      --border: #e8ddce;
-      --border-hover: #d5c6b2;
-      --ink: #241f18;
-      --ink-secondary: #554c40;
-      --ink-muted: #847866;
-      --ink-faint: #b5a691;
-      --accent: #4263eb;
-      --accent-soft: rgba(66,99,235,0.06);
-      --accent-hover: #3b5bdb;
-      --accent-deep: #2f4bb5;
-      --green: #2b8a3e;
-      --green-bg: #ebfbee;
-      --green-border: #b2f2bb;
-      --amber: #e67700;
-      --amber-bg: #fff9db;
-      --red: #c92a2a;
-      --terra: #b0612c;
-      --radius: 6px;
-      --radius-lg: 10px;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
-      --shadow-md: 0 4px 16px rgba(49,40,27,0.06);
-      --shadow-lg: 0 18px 48px rgba(49,40,27,0.08);
-      --transition: 0.15s ease;
-    }
+  /* ============================================================
+     CONTINUOUS ADVANCEMENT — Marketing v2
+     Built for 2031. Shown in 2026.
+     ============================================================ */
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      background:
-        radial-gradient(circle at top left, rgba(47,103,246,0.05), transparent 28%),
-        radial-gradient(circle at bottom right, rgba(176,106,44,0.06), transparent 26%),
-        linear-gradient(180deg, #f8f2e8 0%, var(--bg) 100%);
-      color: var(--ink);
-      font-family: 'Instrument Sans', system-ui, -apple-system, sans-serif;
-      font-feature-settings: "ss01";
-      min-height: 100vh;
-      -webkit-font-smoothing: antialiased;
-      font-size: 15px;
-      line-height: 1.55;
-      letter-spacing: -0.005em;
-    }
-    ::selection { background: var(--ink); color: var(--surface); }
-    a { color: inherit; }
+  :root {
+    --bg-deep:       #06070c;
+    --bg:            #0a0b12;
+    --bg-raised:     #11131d;
+    --bg-glass:      rgba(255,255,255,0.035);
+    --bg-glass-warm: rgba(229,183,118,0.04);
+    --border:        rgba(255,255,255,0.08);
+    --border-strong: rgba(255,255,255,0.14);
+    --border-warm:   rgba(229,183,118,0.18);
 
-    /* ---------- TYPE ---------- */
-    .display   { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; letter-spacing: -0.02em; line-height: 1.02; }
-    .display i { font-style: italic; }
-    .sans-tight { letter-spacing: -0.03em; }
-    .eyebrow {
-      font-family: 'JetBrains Mono', ui-monospace, monospace;
-      font-size: 11px; font-weight: 500;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--ink-muted);
-    }
-    .eyebrow--accent { color: var(--accent); }
-    .eyebrow--terra  { color: var(--terra); }
-    .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+    --ink:        #f5efdf;
+    --ink-dim:    #c9c4b6;
+    --ink-muted:  #8a8a93;
+    --ink-faint:  #54545c;
 
-    /* ---------- LAYOUT ---------- */
-    .container { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
-    .section   { padding-top: clamp(64px, 10vw, 120px); padding-bottom: clamp(64px, 10vw, 120px); }
-    .section--tight { padding-top: clamp(48px, 7vw, 88px); padding-bottom: clamp(48px, 7vw, 88px); }
-    .rule-top { border-top: 1px solid var(--border); }
+    --amber:       #e5b776;
+    --amber-hi:    #f2cd96;
+    --amber-glow:  rgba(229,183,118,0.35);
 
-    /* ---------- NAV ---------- */
-    .nav {
-      position: sticky; top: 0; z-index: 40;
-      background: rgba(246,241,231,0.85);
-      backdrop-filter: saturate(140%) blur(8px);
-      -webkit-backdrop-filter: saturate(140%) blur(8px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-row {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 14px 0;
-    }
-    .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
-    .brand svg { display: block; }
-    .brand-mark {
-      width: 28px; height: 28px; border-radius: 50%;
-      display: inline-grid; place-items: center;
-      background: var(--surface); border: 1px solid var(--border);
-    }
-    .brand-name { font-family: 'Instrument Serif', serif; font-size: 20px; letter-spacing: -0.01em; }
-    .brand-name em { font-style: italic; color: var(--accent); font-weight: 400; }
+    --cyan:        #86c3ff;
+    --cyan-glow:   rgba(134,195,255,0.28);
 
-    .nav-links { display: none; gap: 4px; }
-    @media (min-width: 860px) { .nav-links { display: flex; } }
-    .nav-link {
-      padding: 7px 12px; border-radius: 6px;
-      font-size: 13px; font-weight: 500;
-      text-decoration: none; color: var(--ink-muted);
-      transition: all var(--transition);
-    }
-    .nav-link:hover { background: var(--bg-warm); color: var(--ink-secondary); }
+    --violet:      #b39bff;
+    --violet-glow: rgba(179,155,255,0.24);
 
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 9px 16px; border: none; border-radius: var(--radius);
-      font-family: inherit; font-size: 13px; font-weight: 500;
-      cursor: pointer; text-decoration: none;
-      transition: all var(--transition); white-space: nowrap;
-    }
-    .btn svg { width: 14px; height: 14px; }
-    .btn-primary { background: var(--ink); color: #fff; }
-    .btn-primary:hover { background: var(--ink-secondary); transform: translateY(-1px); box-shadow: var(--shadow-sm); }
-    .btn-accent { background: var(--accent); color: #fff; }
-    .btn-accent:hover { background: var(--accent-hover); }
-    .btn-secondary { background: var(--surface); color: var(--ink); border: 1px solid var(--border); }
-    .btn-secondary:hover { background: var(--surface-alt); border-color: var(--border-hover); }
-    .btn-lg { padding: 14px 20px; font-size: 14px; }
+    --rose:        #f48aa0;
+    --green:       #7bc696;
 
-    /* ---------- HERO ---------- */
-    .hero h1 {
-      font-size: clamp(44px, 7.4vw, 104px);
-    }
-    .hero-grid { display: grid; grid-template-columns: 1fr; gap: 40px; margin-top: 48px; }
-    @media (min-width: 880px) { .hero-grid { grid-template-columns: 3fr 2fr; gap: 64px; } }
-    .lede { font-size: clamp(18px, 2.1vw, 22px); line-height: 1.55; color: var(--ink); max-width: 640px; letter-spacing: -0.008em; }
-    .lede + p { font-size: 17px; line-height: 1.65; color: var(--ink-secondary); margin-top: 20px; max-width: 620px; }
+    --radius:      8px;
+    --radius-lg:   14px;
+    --radius-xl:   20px;
 
-    .hero-aside { padding-left: 0; border-left: none; }
-    @media (min-width: 880px) { .hero-aside { padding-left: 40px; border-left: 1px solid var(--border); } }
-    .replace-list { list-style: none; padding: 0; margin-top: 14px; }
-    .replace-list li {
-      display: flex; gap: 12px; padding: 8px 0; font-size: 14.5px;
-      color: var(--ink-secondary); border-bottom: 1px dashed var(--border);
-    }
-    .replace-list li:last-child { border-bottom: none; }
-    .replace-list li::before {
-      content: '—'; font-family: 'Instrument Serif', serif; color: var(--terra);
-      display: inline-block; width: 14px;
-    }
-    .price-card {
-      margin-top: 28px; padding: 20px; background: var(--surface);
-      border: 1px solid var(--border); border-radius: var(--radius-lg);
-    }
-    .price-card .price { font-family: 'Instrument Serif', serif; font-size: 44px; letter-spacing: -0.02em; }
-    .price-card .price small { font-family: 'Instrument Sans', sans-serif; font-size: 14px; color: var(--ink-muted); font-weight: 500; }
+    --ease:        cubic-bezier(0.2, 0.65, 0.3, 0.98);
+    --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
 
-    /* ---------- BUTTON ROW ---------- */
-    .btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; align-items: center; }
-    .text-link {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 14px; font-weight: 500; color: var(--ink);
-      text-decoration: underline; text-decoration-color: var(--border);
-      text-underline-offset: 4px;
-    }
-    .text-link:hover { text-decoration-color: var(--ink); }
+    --shadow-glow: 0 30px 80px -30px rgba(229,183,118,0.35),
+                   0 20px 60px -30px rgba(134,195,255,0.22);
+  }
 
-    /* ---------- SECTION HEADERS ---------- */
-    .sec-head { max-width: 860px; }
-    .sec-head h2 {
-      font-family: 'Instrument Serif', serif; font-weight: 400;
-      font-size: clamp(34px, 4.4vw, 58px);
-      letter-spacing: -0.02em; line-height: 1.03;
-      margin-top: 14px;
-    }
-    .sec-head p.lede-sub {
-      margin-top: 20px; font-size: 17px; line-height: 1.7;
-      color: var(--ink-secondary); max-width: 680px;
-    }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  *::selection { background: var(--amber); color: #000; }
 
-    /* ---------- SHAPE SECTION ---------- */
-    .shape-grid { display: grid; grid-template-columns: 1fr; gap: 48px; margin-top: 56px; align-items: start; }
-    @media (min-width: 960px) { .shape-grid { grid-template-columns: 1fr 1fr; gap: 80px; } }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Geist', ui-sans-serif, -apple-system, system-ui, sans-serif;
+    font-feature-settings: "ss01", "ss02", "cv11";
+    font-size: 16px; line-height: 1.55;
+    letter-spacing: -0.005em;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
 
-    .axes { display: grid; grid-template-columns: repeat(1, 1fr); gap: 0; margin-top: 64px; border-top: 1px solid var(--border); }
-    @media (min-width: 640px) { .axes { grid-template-columns: repeat(2, 1fr); } }
-    @media (min-width: 960px) { .axes { grid-template-columns: repeat(5, 1fr); } }
-    .axis {
-      padding: 24px 20px 0;
-      border-right: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    @media (min-width: 960px) {
-      .axis:last-child { border-right: none; }
-      .axis { border-bottom: none; }
-    }
-    .axis .eyebrow { display: block; margin-bottom: 8px; }
-    .axis p { font-size: 14px; line-height: 1.6; color: var(--ink-secondary); padding-bottom: 24px; }
+  /* Subtle dot grid that disappears in dark sections */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 22px 22px;
+    pointer-events: none;
+    z-index: 0;
+    mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
+  }
 
-    /* ---------- PRODUCT / SURFACES ---------- */
-    .surfaces { display: grid; grid-template-columns: 1fr; gap: 36px; margin-top: 60px; }
-    @media (min-width: 900px) { .surfaces { grid-template-columns: repeat(3, 1fr); } }
-    .surface {
-      padding: 0;
-    }
-    .surface h3 {
-      font-family: 'Instrument Serif', serif; font-weight: 400;
-      font-size: 30px; letter-spacing: -0.02em; line-height: 1.1;
-      margin-top: 12px;
-    }
-    .surface p { font-size: 15px; line-height: 1.7; color: var(--ink-secondary); margin-top: 12px; }
-    .surface p.ink { color: var(--ink); }
+  main, header { position: relative; z-index: 1; }
 
-    /* Mock cards inside surfaces */
-    .mock {
-      margin-top: 28px; background: var(--surface);
-      border: 1px solid var(--border); border-radius: var(--radius-lg);
-      overflow: hidden;
-    }
-    .mock-head {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 12px 16px; border-bottom: 1px solid var(--border);
-      background: var(--surface-alt);
-    }
-    .mock-body { padding: 4px 0; }
-    .mock-item {
-      display: grid; grid-template-columns: auto 1fr auto; gap: 12px;
-      padding: 12px 16px; border-bottom: 1px solid var(--border);
-      font-size: 13px;
-    }
-    .mock-item:last-child { border-bottom: none; }
-    .mock-item .dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 7px; background: var(--accent); }
-    .mock-item .dot.quiet { background: var(--border-hover); }
-    .mock-item .dot.flag  { background: var(--terra); }
-    .mock-item .title { font-weight: 500; color: var(--ink); }
-    .mock-item .sub { color: var(--ink-muted); font-size: 12.5px; margin-top: 3px; }
-    .mock-item .meta { color: var(--ink-faint); font-size: 11.5px; font-family: 'JetBrains Mono', monospace; white-space: nowrap; }
+  a { color: inherit; text-decoration: none; }
 
-    .pulse-item {
-      border-left: 2px solid var(--border);
-      padding: 8px 14px;
-      margin: 8px 16px;
+  .container { max-width: 1240px; margin: 0 auto; padding: 0 28px; position: relative; }
+  .section   { padding: clamp(80px, 12vw, 160px) 0; position: relative; }
+  .section--tight { padding: clamp(56px, 8vw, 100px) 0; }
+
+  /* ─── TYPE ──────────────────────────────────────────────────── */
+  .serif { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; letter-spacing: -0.015em; }
+  .serif i, .serif em { font-style: italic; }
+  .mono  { font-family: 'Geist Mono', ui-monospace, monospace; }
+
+  .eyebrow {
+    font-family: 'Geist Mono', ui-monospace, monospace;
+    font-size: 11.5px; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--ink-muted);
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .eyebrow::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--amber); box-shadow: 0 0 12px var(--amber-glow);
+  }
+  .eyebrow--cyan::before   { background: var(--cyan);   box-shadow: 0 0 12px var(--cyan-glow); }
+  .eyebrow--violet::before { background: var(--violet); box-shadow: 0 0 12px var(--violet-glow); }
+  .eyebrow--plain::before  { display: none; }
+
+  h1, h2, h3 { font-weight: 500; letter-spacing: -0.035em; line-height: 1.02; }
+  .h1 { font-size: clamp(52px, 9.5vw, 128px); }
+  .h2 { font-size: clamp(40px, 6.5vw, 88px); letter-spacing: -0.032em; line-height: 1.03; }
+  .h3 { font-size: clamp(26px, 3vw, 40px); letter-spacing: -0.02em; line-height: 1.1; }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #ffffff 0%, #f5efdf 40%, var(--amber) 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+  }
+  .gradient-cool {
+    background: linear-gradient(135deg, #ffffff 0%, #e6e4f5 30%, var(--cyan) 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+  }
+
+  /* ─── BUTTONS ───────────────────────────────────────────────── */
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 20px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-family: inherit; font-size: 14px; font-weight: 500;
+    color: var(--ink); cursor: pointer;
+    transition: all 0.2s var(--ease);
+    background: transparent; white-space: nowrap;
+  }
+  .btn:hover { background: var(--bg-glass); border-color: var(--border-strong); transform: translateY(-1px); }
+  .btn svg { width: 14px; height: 14px; transition: transform 0.2s var(--ease); }
+  .btn:hover svg { transform: translateX(3px); }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--amber-hi), var(--amber));
+    color: #1a1407; border: none; font-weight: 600;
+    box-shadow: 0 0 0 1px rgba(229,183,118,0.2), 0 10px 40px -12px var(--amber-glow);
+  }
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #ffdaa3, var(--amber-hi));
+    box-shadow: 0 0 0 1px rgba(229,183,118,0.3), 0 14px 50px -10px var(--amber-glow);
+  }
+
+  .btn-lg { padding: 15px 26px; font-size: 15px; }
+
+  /* ─── NAV ───────────────────────────────────────────────────── */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(10,11,18,0.55);
+    backdrop-filter: saturate(180%) blur(16px);
+    -webkit-backdrop-filter: saturate(180%) blur(16px);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .nav-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 0;
+  }
+  .brand { display: inline-flex; align-items: center; gap: 12px; font-family: 'Geist', sans-serif; }
+  .brand-mark {
+    width: 32px; height: 32px; border-radius: 9px;
+    display: grid; place-items: center;
+    background: linear-gradient(140deg, rgba(229,183,118,0.14), rgba(229,183,118,0.02) 60%, rgba(134,195,255,0.05));
+    border: 1px solid var(--border-warm);
+    box-shadow: 0 0 24px -8px var(--amber-glow), inset 0 1px 0 rgba(255,255,255,0.06);
+    transition: box-shadow 0.4s var(--ease), transform 0.4s var(--ease);
+  }
+  .brand-mark svg { width: 100%; height: 100%; display: block; }
+  .brand-mark .ca-tip { filter: drop-shadow(0 0 4px var(--amber-glow)); }
+  .brand:hover .brand-mark {
+    box-shadow: 0 0 36px -6px var(--amber-glow), inset 0 1px 0 rgba(255,255,255,0.1);
+    transform: translateY(-1px);
+  }
+  .brand-name { font-size: 16px; font-weight: 500; letter-spacing: -0.015em; }
+  .brand-name em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--amber); font-weight: 400; font-size: 18px; margin-left: 2px; }
+
+  .nav-links { display: none; align-items: center; gap: 2px; }
+  @media (min-width: 900px) { .nav-links { display: inline-flex; } }
+  .nav-link {
+    padding: 8px 14px; border-radius: 6px; font-size: 13.5px;
+    color: var(--ink-muted); transition: color 0.15s, background 0.15s;
+  }
+  .nav-link:hover { color: var(--ink); background: rgba(255,255,255,0.03); }
+
+  /* ─── HERO ──────────────────────────────────────────────────── */
+  .hero { padding-top: clamp(80px, 12vw, 160px); padding-bottom: clamp(60px, 10vw, 140px); overflow: hidden; }
+  .hero-atmos {
+    position: absolute; inset: 0; z-index: 0; overflow: hidden;
+    pointer-events: none;
+  }
+  .glow {
+    position: absolute; border-radius: 50%;
+    filter: blur(100px); opacity: 0.55;
+    animation: drift 18s ease-in-out infinite alternate;
+  }
+  .glow-1 { width: 720px; height: 520px; top: -200px; right: -140px; background: radial-gradient(circle, var(--amber) 0%, transparent 65%); }
+  .glow-2 { width: 640px; height: 640px; bottom: -260px; left: -220px; background: radial-gradient(circle, var(--violet) 0%, transparent 70%); animation-delay: -6s; }
+  .glow-3 { width: 500px; height: 500px; top: 40%; left: 55%; background: radial-gradient(circle, var(--cyan) 0%, transparent 70%); opacity: 0.22; animation-delay: -10s; }
+
+  @keyframes drift {
+    0%   { transform: translate(0, 0) scale(1); }
+    50%  { transform: translate(30px, -20px) scale(1.05); }
+    100% { transform: translate(-20px, 30px) scale(0.98); }
+  }
+
+  .hero-grid {
+    display: grid; grid-template-columns: 1fr;
+    gap: 72px; align-items: center;
+    margin-top: 52px;
+  }
+  @media (min-width: 1040px) {
+    .hero-grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 80px; }
+  }
+
+  .hero h1 { max-width: 14ch; }
+  .hero .lede { font-size: clamp(18px, 1.9vw, 22px); line-height: 1.5; color: var(--ink-dim); max-width: 560px; margin-top: 36px; letter-spacing: -0.008em; }
+  .hero .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 42px; align-items: center; }
+
+  .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px; }
+  .hero-tag {
+    font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.1em;
+    padding: 5px 10px; border-radius: 999px;
+    background: var(--bg-glass); border: 1px solid var(--border);
+    color: var(--ink-muted); text-transform: uppercase;
+  }
+
+  /* ─── HERO PRODUCT MOCKUP ───────────────────────────────────── */
+  .mock-stage {
+    position: relative;
+    perspective: 1400px;
+    min-height: 480px;
+  }
+  .mock-stage::before {
+    content: ''; position: absolute;
+    inset: -60px -20px -20px -60px;
+    background: radial-gradient(ellipse at 30% 20%, var(--amber-glow) 0%, transparent 55%),
+                radial-gradient(ellipse at 70% 80%, var(--cyan-glow) 0%, transparent 60%);
+    filter: blur(40px);
+    z-index: 0;
+  }
+
+  .panel {
+    position: relative; z-index: 1;
+    background: linear-gradient(180deg, rgba(20,21,32,0.92) 0%, rgba(10,11,18,0.92) 100%);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-xl);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.06) inset,
+      0 40px 80px -30px rgba(0,0,0,0.6),
+      0 0 0 1px rgba(255,255,255,0.02);
+    overflow: hidden;
+  }
+
+  .panel-chrome {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), transparent);
+  }
+  .chrome-dots { display: inline-flex; gap: 6px; }
+  .chrome-dots span { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.09); }
+  .chrome-label { font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--ink-muted); text-transform: uppercase; }
+
+  .panel-body { padding: 6px 0; }
+
+  .pulse-item {
+    display: grid; grid-template-columns: auto 1fr auto;
+    gap: 14px; padding: 14px 20px;
+    border-left: 2px solid transparent;
+    transition: background 0.2s var(--ease);
+    position: relative;
+    opacity: 0; transform: translateY(8px);
+    animation: slideIn 0.5s var(--ease-out) forwards;
+  }
+  .pulse-item:nth-child(1) { animation-delay: 0.15s; }
+  .pulse-item:nth-child(2) { animation-delay: 0.35s; }
+  .pulse-item:nth-child(3) { animation-delay: 0.55s; }
+  .pulse-item:nth-child(4) { animation-delay: 0.75s; }
+
+  @keyframes slideIn { to { opacity: 1; transform: translateY(0); } }
+
+  .pulse-item + .pulse-item { border-top: 1px solid rgba(255,255,255,0.04); }
+  .pulse-item--top { border-left-color: var(--amber); background: linear-gradient(90deg, rgba(229,183,118,0.05), transparent 70%); }
+  .pulse-item--top::before {
+    content: ''; position: absolute; left: -2px; top: 0; bottom: 0; width: 2px;
+    background: var(--amber);
+    box-shadow: 0 0 20px var(--amber-glow);
+  }
+
+  .pulse-icon {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: linear-gradient(135deg, rgba(229,183,118,0.2), rgba(229,183,118,0.04));
+    border: 1px solid var(--border-warm);
+    display: grid; place-items: center;
+    color: var(--amber); font-size: 13px;
+    font-family: 'Geist Mono', monospace; font-weight: 500;
+  }
+  .pulse-item:not(.pulse-item--top) .pulse-icon {
+    background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+    border: 1px solid var(--border);
+    color: var(--ink-muted);
+  }
+
+  .pulse-body .title { font-size: 14.5px; font-weight: 500; color: var(--ink); letter-spacing: -0.01em; }
+  .pulse-body .sub   { font-size: 13px; color: var(--ink-muted); margin-top: 3px; line-height: 1.5; }
+  .pulse-body .cta   {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12.5px; color: var(--amber); margin-top: 8px; font-weight: 500;
+    font-family: 'Geist Mono', monospace; letter-spacing: 0.02em;
+  }
+  .pulse-meta {
+    font-family: 'Geist Mono', monospace; font-size: 11px; color: var(--ink-faint);
+    white-space: nowrap; align-self: start; margin-top: 4px;
+  }
+
+  .panel-foot {
+    padding: 12px 18px; border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 12px; color: var(--ink-faint); font-family: 'Geist Mono', monospace;
+    background: rgba(255,255,255,0.02);
+  }
+
+  /* ─── SCROLL CUE ────────────────────────────────────────────── */
+  .scroll-cue {
+    margin-top: 80px; text-align: center;
+    font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.12em;
+    color: var(--ink-faint); text-transform: uppercase;
+    animation: bob 2.2s ease-in-out infinite;
+  }
+  @keyframes bob { 0%,100% { transform: translateY(0); opacity: 0.6; } 50% { transform: translateY(4px); opacity: 1; } }
+
+  /* ─── SECTION HEADS ─────────────────────────────────────────── */
+  .sec-head { max-width: 960px; }
+  .sec-head h2 { margin-top: 22px; }
+  .sec-head .lede-sub { margin-top: 24px; font-size: 18px; line-height: 1.65; color: var(--ink-dim); max-width: 720px; }
+
+  /* ─── SCENE (voice memo unfolding) ──────────────────────────── */
+  .scene-box {
+    margin-top: 64px;
+    display: grid; grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  @media (min-width: 900px) {
+    .scene-box { grid-template-columns: 1fr auto 1.15fr; gap: 40px; align-items: stretch; }
+  }
+
+  .voice-panel { padding: 28px; }
+  .voice-panel .panel-chrome { padding: 0 0 20px 0; border-bottom: 1px solid var(--border); margin-bottom: 22px; }
+  .waveform { display: flex; align-items: center; gap: 4px; height: 80px; justify-content: center; margin: 18px 0; }
+  .waveform span {
+    width: 3px; background: linear-gradient(180deg, var(--amber), rgba(229,183,118,0.3));
+    border-radius: 4px; display: block;
+    animation: wave 1.6s ease-in-out infinite;
+  }
+  @keyframes wave {
+    0%, 100% { transform: scaleY(0.4); opacity: 0.6; }
+    50%      { transform: scaleY(1);   opacity: 1; }
+  }
+
+  .waveform span:nth-child(1)  { height: 20px; animation-delay: 0s; }
+  .waveform span:nth-child(2)  { height: 40px; animation-delay: 0.1s; }
+  .waveform span:nth-child(3)  { height: 68px; animation-delay: 0.2s; }
+  .waveform span:nth-child(4)  { height: 32px; animation-delay: 0.3s; }
+  .waveform span:nth-child(5)  { height: 76px; animation-delay: 0.4s; }
+  .waveform span:nth-child(6)  { height: 50px; animation-delay: 0.15s; }
+  .waveform span:nth-child(7)  { height: 28px; animation-delay: 0.25s; }
+  .waveform span:nth-child(8)  { height: 64px; animation-delay: 0.35s; }
+  .waveform span:nth-child(9)  { height: 44px; animation-delay: 0.05s; }
+  .waveform span:nth-child(10) { height: 72px; animation-delay: 0.45s; }
+  .waveform span:nth-child(11) { height: 24px; animation-delay: 0.3s; }
+  .waveform span:nth-child(12) { height: 58px; animation-delay: 0.1s; }
+  .waveform span:nth-child(13) { height: 38px; animation-delay: 0.2s; }
+  .waveform span:nth-child(14) { height: 66px; animation-delay: 0.4s; }
+  .waveform span:nth-child(15) { height: 22px; animation-delay: 0s; }
+  .waveform span:nth-child(16) { height: 48px; animation-delay: 0.3s; }
+  .waveform span:nth-child(17) { height: 60px; animation-delay: 0.15s; }
+  .waveform span:nth-child(18) { height: 30px; animation-delay: 0.25s; }
+  .waveform span:nth-child(19) { height: 54px; animation-delay: 0.1s; }
+  .waveform span:nth-child(20) { height: 40px; animation-delay: 0.2s; }
+  .waveform span:nth-child(21) { height: 70px; animation-delay: 0.35s; }
+  .waveform span:nth-child(22) { height: 26px; animation-delay: 0.05s; }
+  .waveform span:nth-child(23) { height: 42px; animation-delay: 0.25s; }
+  .waveform span:nth-child(24) { height: 62px; animation-delay: 0.4s; }
+
+  .scene-arrow {
+    display: grid; place-items: center;
+    color: var(--ink-muted);
+    font-family: 'Geist Mono', monospace; font-size: 11px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  .scene-arrow svg { margin: 10px 0; opacity: 0.6; }
+  @media (max-width: 899px) { .scene-arrow { transform: rotate(90deg); margin: 10px 0; } }
+
+  .extracted { padding: 26px; }
+  .extracted h4 { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted); font-weight: 500; font-family: 'Geist Mono', monospace; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .extracted h4::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--amber); box-shadow: 0 0 8px var(--amber-glow); }
+  .extracted h4 + h4 { margin-top: 22px; }
+  .extracted ul { list-style: none; padding: 0; }
+  .extracted li {
+    padding: 9px 14px;
+    margin-bottom: 6px;
+    background: var(--bg-glass);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 13.5px; color: var(--ink-dim);
+    display: flex; justify-content: space-between; align-items: center; gap: 10px;
+  }
+  .extracted li .tag {
+    font-family: 'Geist Mono', monospace; font-size: 10.5px;
+    padding: 2px 7px; border-radius: 4px;
+    background: rgba(229,183,118,0.1); color: var(--amber);
+    border: 1px solid rgba(229,183,118,0.15);
+  }
+  .extracted li .tag--cyan { background: rgba(134,195,255,0.1); color: var(--cyan); border-color: rgba(134,195,255,0.2); }
+  .extracted li .tag--rose { background: rgba(244,138,160,0.1); color: var(--rose); border-color: rgba(244,138,160,0.2); }
+
+  /* ─── FIVE AXIS ─────────────────────────────────────────────── */
+  .axis-stage {
+    margin-top: 80px; position: relative;
+    display: grid; place-items: center;
+    padding: 60px 0;
+  }
+  .axis-stage::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, rgba(229,183,118,0.08) 0%, transparent 55%);
+    filter: blur(40px);
+  }
+
+  .axes-row {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    margin-top: 80px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .axis-cell {
+    padding: 28px 24px;
+    background: var(--bg);
+    transition: background 0.25s var(--ease);
+  }
+  .axis-cell:hover { background: var(--bg-raised); }
+  .axis-num { font-family: 'Geist Mono', monospace; font-size: 11px; color: var(--amber); letter-spacing: 0.16em; }
+  .axis-cell h4 { font-size: 17px; font-weight: 600; margin-top: 10px; letter-spacing: -0.012em; }
+  .axis-cell p { font-size: 13.5px; color: var(--ink-muted); line-height: 1.6; margin-top: 8px; }
+
+  /* ─── THREE SURFACES ────────────────────────────────────────── */
+  .surfaces {
+    display: grid; gap: 48px;
+    grid-template-columns: 1fr;
+    margin-top: 64px;
+  }
+
+  .surface {
+    display: grid; grid-template-columns: 1fr; gap: 40px;
+    align-items: center;
+  }
+  @media (min-width: 940px) {
+    .surface { grid-template-columns: 1fr 1.1fr; gap: 72px; }
+    .surface--flip { grid-template-columns: 1.1fr 1fr; }
+    .surface--flip .surface-copy { order: 2; }
+  }
+
+  .surface-copy .eyebrow { margin-bottom: 18px; }
+  .surface-copy h3 { letter-spacing: -0.025em; }
+  .surface-copy p { margin-top: 18px; font-size: 16.5px; line-height: 1.7; color: var(--ink-dim); max-width: 540px; }
+  .surface-copy p + p { color: var(--ink-muted); font-size: 15.5px; }
+
+  .surface-features { list-style: none; padding: 0; margin-top: 28px; display: flex; flex-direction: column; gap: 10px; }
+  .surface-features li { font-size: 14px; color: var(--ink-dim); display: flex; gap: 12px; align-items: flex-start; }
+  .surface-features li::before {
+    content: ''; display: block; width: 4px; height: 4px;
+    background: var(--amber); border-radius: 50%; margin-top: 9px;
+    box-shadow: 0 0 10px var(--amber-glow); flex-shrink: 0;
+  }
+
+  .surface-mock { position: relative; }
+
+  /* Inbox mockup items */
+  .inbox-item {
+    display: grid; grid-template-columns: auto 1fr auto;
+    gap: 14px; padding: 15px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .inbox-item:last-child { border-bottom: none; }
+  .inbox-icon {
+    width: 34px; height: 34px; border-radius: 9px;
+    display: grid; place-items: center;
+    background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.015));
+    border: 1px solid var(--border);
+    color: var(--amber);
+  }
+  .inbox-icon.violet { color: var(--violet); }
+  .inbox-icon.cyan   { color: var(--cyan); }
+  .inbox-icon.rose   { color: var(--rose); }
+  .inbox-body .t { font-size: 14px; font-weight: 500; color: var(--ink); letter-spacing: -0.005em; }
+  .inbox-body .s { font-size: 12.5px; color: var(--ink-muted); margin-top: 3px; }
+  .inbox-body .s .dot { display: inline-block; width: 3px; height: 3px; background: var(--ink-faint); border-radius: 50%; margin: 0 7px; vertical-align: middle; }
+  .inbox-body .parsed {
+    display: inline-flex; gap: 4px; margin-top: 8px; flex-wrap: wrap;
+  }
+  .inbox-body .parsed span {
+    font-family: 'Geist Mono', monospace; font-size: 10.5px;
+    padding: 2px 8px; border-radius: 4px;
+    background: rgba(134,195,255,0.08); color: var(--cyan);
+    border: 1px solid rgba(134,195,255,0.15);
+  }
+  .inbox-meta { font-family: 'Geist Mono', monospace; font-size: 11px; color: var(--ink-faint); white-space: nowrap; }
+
+  /* Thread mockup */
+  .thread-content { padding: 24px; }
+  .thread-content p { font-size: 14.5px; line-height: 1.75; color: var(--ink-dim); margin-bottom: 14px; }
+  .thread-content p em { color: var(--ink-muted); font-style: italic; }
+  .thread-content .outstanding {
+    margin-top: 18px; padding: 14px 16px;
+    background: rgba(244,138,160,0.06);
+    border: 1px solid rgba(244,138,160,0.16);
+    border-radius: 10px;
+    font-size: 13px; color: var(--rose);
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .thread-content .outstanding .label { font-family: 'Geist Mono', monospace; font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.75; }
+  .thread-content .draft-btn {
+    margin-top: 18px; display: inline-flex; align-items: center; gap: 8px;
+    font-size: 13px; font-weight: 500; color: var(--amber);
+    padding: 10px 14px; border: 1px solid var(--border-warm);
+    border-radius: 8px; background: rgba(229,183,118,0.05);
+    transition: all 0.2s var(--ease);
+  }
+  .thread-content .draft-btn:hover { background: rgba(229,183,118,0.1); transform: translateY(-1px); }
+
+  /* ─── COMPARISON ────────────────────────────────────────────── */
+  .vs {
+    margin-top: 56px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .vs-row {
+    display: grid; grid-template-columns: 1fr;
+    gap: 0; padding: 32px 28px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+    transition: background 0.2s var(--ease);
+  }
+  .vs-row:last-child { border-bottom: none; }
+  .vs-row:hover { background: var(--bg-raised); }
+  @media (min-width: 860px) {
+    .vs-row { grid-template-columns: 260px 1fr; gap: 56px; padding: 36px 40px; align-items: center; }
+  }
+  .vs-label { display: flex; flex-direction: column; gap: 6px; }
+  .vs-label .eyebrow { margin: 0; }
+  .vs-label h4 { font-size: 20px; font-weight: 500; letter-spacing: -0.015em; line-height: 1.2; }
+  .vs-label h4 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--amber); }
+  .vs-body { font-size: 15.5px; line-height: 1.7; color: var(--ink-dim); max-width: 680px; }
+
+  /* ─── OBJECT MODEL ──────────────────────────────────────────── */
+  .under {
+    margin-top: 64px;
+    display: grid; grid-template-columns: 1fr;
+    gap: 56px;
+  }
+  @media (min-width: 880px) {
+    .under { grid-template-columns: 1.15fr 1fr; gap: 80px; }
+  }
+  .under-copy p { font-size: 16.5px; line-height: 1.7; color: var(--ink-dim); max-width: 580px; }
+  .under-copy p + p { color: var(--ink-muted); margin-top: 18px; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+  .chip {
+    font-family: 'Geist Mono', monospace; font-size: 12px;
+    padding: 6px 12px; border-radius: 999px;
+    background: var(--bg-glass); border: 1px solid var(--border);
+    color: var(--ink-dim);
+    transition: all 0.2s var(--ease);
+  }
+  .chip:hover { background: rgba(255,255,255,0.06); border-color: var(--border-strong); }
+  .chip--amber {
+    background: rgba(229,183,118,0.08);
+    border-color: var(--border-warm);
+    color: var(--amber);
+  }
+
+  .specs { display: flex; flex-direction: column; gap: 28px; }
+  .spec { border-top: 1px solid var(--border); padding-top: 20px; }
+  .spec .eyebrow { margin-bottom: 10px; }
+  .spec p { font-size: 14.5px; line-height: 1.65; color: var(--ink-dim); }
+
+  /* ─── FOR (dark dark) ───────────────────────────────────────── */
+  .for-sec {
+    position: relative;
+    background: radial-gradient(ellipse at 20% 20%, rgba(229,183,118,0.08) 0%, transparent 55%),
+                radial-gradient(ellipse at 80% 80%, rgba(134,195,255,0.06) 0%, transparent 55%),
+                var(--bg-deep);
+    border-top: 1px solid rgba(255,255,255,0.04);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .for-sec .sec-head h2 { max-width: 1000px; }
+
+  .you-list { list-style: none; padding: 0; margin-top: 40px; max-width: 720px; }
+  .you-list li {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 17px; line-height: 1.55;
+    color: var(--ink-dim);
+    display: flex; gap: 16px; align-items: baseline;
+    transition: color 0.2s var(--ease);
+  }
+  .you-list li:hover { color: var(--ink); }
+  .you-list li::before {
+    content: attr(data-num);
+    font-family: 'Geist Mono', monospace; font-size: 12px;
+    color: var(--amber); letter-spacing: 0.12em;
+    min-width: 36px; flex-shrink: 0;
+  }
+  .you-list li em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--ink); }
+
+  /* ─── PRICING ───────────────────────────────────────────────── */
+  .tiers {
+    display: grid; grid-template-columns: 1fr; gap: 20px;
+    margin-top: 64px;
+  }
+  @media (min-width: 880px) { .tiers { grid-template-columns: repeat(3, 1fr); } }
+
+  .tier {
+    padding: 32px;
+    background: linear-gradient(180deg, var(--bg-raised), var(--bg));
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    position: relative;
+    transition: all 0.25s var(--ease);
+  }
+  .tier:hover { border-color: var(--border-strong); transform: translateY(-3px); }
+
+  .tier--feature {
+    border: 1px solid transparent;
+    background:
+      linear-gradient(180deg, var(--bg-raised), var(--bg)) padding-box,
+      linear-gradient(135deg, var(--amber), rgba(229,183,118,0.15)) border-box;
+    box-shadow: 0 0 0 1px rgba(229,183,118,0.15), 0 30px 60px -25px var(--amber-glow);
+  }
+  .tier-badge {
+    position: absolute; top: -12px; left: 24px;
+    padding: 5px 12px;
+    background: linear-gradient(135deg, var(--amber-hi), var(--amber));
+    color: #1a1407; font-family: 'Geist Mono', monospace; font-size: 10.5px;
+    letter-spacing: 0.14em; border-radius: 6px; font-weight: 600;
+  }
+
+  .tier h4 { font-family: 'Geist Mono', monospace; font-size: 11.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-muted); font-weight: 500; }
+  .tier .price { font-size: 54px; letter-spacing: -0.032em; font-weight: 500; margin-top: 16px; line-height: 1; }
+  .tier .price small { font-size: 15px; color: var(--ink-muted); font-weight: 400; letter-spacing: 0; margin-left: 4px; }
+  .tier .desc { font-size: 13.5px; color: var(--ink-muted); margin-top: 8px; line-height: 1.5; }
+  .tier ul { list-style: none; padding: 0; margin-top: 24px; display: flex; flex-direction: column; gap: 10px; }
+  .tier li { font-size: 14px; color: var(--ink-dim); display: flex; gap: 10px; align-items: flex-start; }
+  .tier li::before { content: ''; margin-top: 9px; width: 4px; height: 4px; border-radius: 50%; background: var(--amber); box-shadow: 0 0 8px var(--amber-glow); flex-shrink: 0; }
+
+  .context {
+    margin-top: 72px; padding: 40px 32px;
+    border: 1px solid var(--border); border-radius: var(--radius-lg);
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+    display: grid; grid-template-columns: 1fr; gap: 28px;
+  }
+  @media (min-width: 760px) { .context { grid-template-columns: repeat(4, 1fr); } }
+  .context-cell .label { font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--ink-faint); text-transform: uppercase; }
+  .context-cell .v     { font-size: 24px; font-weight: 500; letter-spacing: -0.02em; margin-top: 8px; }
+  .context-cell.em .v  { color: var(--amber); }
+  .context-cell .sub   { font-size: 13px; color: var(--ink-muted); margin-top: 4px; }
+
+  /* ─── FAQ ───────────────────────────────────────────────────── */
+  .faqs {
+    margin-top: 64px;
+    display: grid; grid-template-columns: 1fr;
+    gap: 0;
+    border-top: 1px solid var(--border);
+  }
+  .faq {
+    padding: 26px 0;
+    border-bottom: 1px solid var(--border);
+    display: grid; grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  @media (min-width: 760px) { .faq { grid-template-columns: 320px 1fr; gap: 56px; padding: 32px 0; } }
+  .faq q { font-family: 'Instrument Serif', serif; font-size: 22px; letter-spacing: -0.015em; quotes: none; font-weight: 400; color: var(--ink); line-height: 1.2; display: block; }
+  .faq q::before, .faq q::after { content: ''; }
+  .faq p { font-size: 15px; line-height: 1.7; color: var(--ink-dim); max-width: 620px; }
+
+  /* ─── CTA FINAL ─────────────────────────────────────────────── */
+  .cta-sec {
+    position: relative;
+    text-align: center; overflow: hidden;
+  }
+  .cta-sec::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, rgba(229,183,118,0.14) 0%, transparent 55%),
+                radial-gradient(ellipse at 30% 80%, rgba(179,155,255,0.08) 0%, transparent 60%);
+    filter: blur(30px);
+    pointer-events: none;
+  }
+  .cta-sec h2 {
+    max-width: 1100px; margin: 22px auto 0;
+    font-size: clamp(48px, 8vw, 112px);
+  }
+  .cta-sec p { max-width: 640px; margin: 32px auto 0; font-size: 18px; line-height: 1.65; color: var(--ink-dim); }
+  .cta-sec .actions { margin-top: 48px; justify-content: center; display: flex; gap: 14px; flex-wrap: wrap; }
+  .cta-sec .meta { margin-top: 56px; font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: var(--ink-faint); text-transform: uppercase; }
+
+  /* ─── FOOTER ────────────────────────────────────────────────── */
+  .foot { border-top: 1px solid var(--border); padding: 40px 0 80px; }
+  .foot-row { display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; align-items: flex-end; }
+  .foot-meta { display: flex; gap: 24px; font-family: 'Geist Mono', monospace; font-size: 11.5px; color: var(--ink-faint); letter-spacing: 0.06em; flex-wrap: wrap; }
+  .foot-meta a { transition: color 0.15s; }
+  .foot-meta a:hover { color: var(--ink-dim); }
+
+  /* ─── REVEAL ON SCROLL ──────────────────────────────────────── */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .glow, .pulse-item, .waveform span { animation: none !important; transition: none !important; opacity: 1 !important; transform: none !important; }
+  }
+
+  /* ─── MISC ──────────────────────────────────────────────────── */
+  .muted { color: var(--ink-muted); }
+  .divider-label {
+    display: flex; align-items: center; gap: 16px;
+    font-family: 'Geist Mono', monospace; font-size: 11px;
+    color: var(--ink-faint); letter-spacing: 0.14em; text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .divider-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+
+  /* ============================================================
+     CINEMATIC INTRO — fires once on page load
+     ============================================================ */
+  @keyframes intro-up {
+    from { opacity: 0; transform: translateY(18px); filter: blur(6px); }
+    to   { opacity: 1; transform: translateY(0);    filter: blur(0); }
+  }
+  @keyframes intro-mock-up {
+    from { opacity: 0; transform: translateY(40px) rotate(-0.4deg) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0)    rotate(-0.4deg) scale(1); }
+  }
+  @keyframes intro-tip {
+    0%   { filter: drop-shadow(0 0 0 transparent); transform: scale(0.6); opacity: 0; }
+    40%  { opacity: 1; transform: scale(1.4); filter: drop-shadow(0 0 14px var(--amber)); }
+    100% { opacity: 1; transform: scale(1);   filter: drop-shadow(0 0 4px var(--amber-glow)); }
+  }
+  @keyframes intro-sweep {
+    0%   { transform: translateX(-40%) scaleX(0.2); opacity: 0; }
+    30%  { opacity: 0.55; }
+    100% { transform: translateX(120%) scaleX(1);   opacity: 0; }
+  }
+  .hero-sweep {
+    position: absolute; top: 55%; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--amber) 45%, var(--amber-hi) 50%, var(--amber) 55%, transparent);
+    filter: blur(1px);
+    pointer-events: none;
+    opacity: 0;
+    transform-origin: left center;
+  }
+  .js-intro .hero-sweep        { animation: intro-sweep 2.2s var(--ease-out) 0.25s 1 forwards; }
+  .js-intro .brand-mark svg .ca-tip { animation: intro-tip 1.2s var(--ease-out) 0.1s both; }
+  .js-intro .hero .eyebrow     { animation: intro-up 0.9s var(--ease-out) 0.2s both; }
+  .js-intro .hero .h1          { animation: intro-up 1.1s var(--ease-out) 0.35s both; }
+  .js-intro .hero .lede        { animation: intro-up 0.9s var(--ease-out) 0.75s both; }
+  .js-intro .hero .actions     { animation: intro-up 0.9s var(--ease-out) 0.95s both; }
+  .js-intro .hero .hero-tags   { animation: intro-up 0.9s var(--ease-out) 1.1s both; }
+  .js-intro .hero .mock-stage  { animation: intro-mock-up 1.4s var(--ease-out) 0.55s both; }
+  @media (prefers-reduced-motion: reduce) {
+    .js-intro .hero-sweep,
+    .js-intro .brand-mark svg .ca-tip,
+    .js-intro .hero .eyebrow, .js-intro .hero .h1, .js-intro .hero .lede,
+    .js-intro .hero .actions, .js-intro .hero .hero-tags, .js-intro .hero .mock-stage {
+      animation: none !important;
     }
-    .pulse-item.top { border-left-color: var(--accent); }
-    .pulse-item .title { font-weight: 500; font-size: 13.5px; }
-    .pulse-item .sub { color: var(--ink-muted); font-size: 12.5px; margin-top: 3px; }
-    .pulse-item .cta { color: var(--accent); font-size: 12.5px; font-weight: 500; margin-top: 6px; display: inline-block; }
+  }
 
-    .thread-body { padding: 16px; font-size: 13px; line-height: 1.75; color: var(--ink); }
-    .thread-body p { margin-bottom: 10px; }
-    .thread-body em { color: var(--ink-muted); }
-    .thread-body .commit { color: var(--ink-muted); }
-    .thread-body .cta { color: var(--accent); font-weight: 500; margin-top: 8px; display: inline-block; }
+  /* ============================================================
+     SECTION: SEE THE DIFFERENCE (replaces vs/differentiation)
+     ============================================================ */
+  .diff-stage {
+    display: grid; gap: 24px; margin-top: 56px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 1080px) {
+    .diff-stage { grid-template-columns: 1fr 56px 1fr; align-items: stretch; }
+  }
+  .diff-panel {
+    position: relative;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 28px 28px 32px;
+    background: var(--bg-glass);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    min-height: 520px;
+    overflow: hidden;
+  }
+  .diff-panel--left {
+    background:
+      radial-gradient(circle at 20% 20%, rgba(244,138,160,0.06), transparent 55%),
+      var(--bg-glass);
+  }
+  .diff-panel--right {
+    background:
+      radial-gradient(circle at 80% 20%, rgba(229,183,118,0.10), transparent 55%),
+      radial-gradient(circle at 30% 90%, rgba(134,195,255,0.07), transparent 55%),
+      var(--bg-glass-warm);
+    border-color: var(--border-warm);
+    box-shadow: 0 40px 120px -50px var(--amber-glow);
+  }
+  .diff-panel-head {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+    padding-bottom: 16px; margin-bottom: 18px;
+    border-bottom: 1px dashed var(--border);
+  }
+  .diff-panel-head h3 {
+    font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 24px;
+    letter-spacing: -0.01em; color: var(--ink);
+  }
+  .diff-panel-head h3 em { font-style: italic; }
+  .diff-panel--left .diff-panel-head h3 em { color: var(--rose); }
+  .diff-panel--right .diff-panel-head h3 em { color: var(--amber); }
 
-    /* ---------- SCENES ---------- */
-    .scenes { display: grid; grid-template-columns: 1fr; gap: 48px; margin-top: 60px; }
-    @media (min-width: 860px) { .scenes { grid-template-columns: repeat(3, 1fr); gap: 48px; } }
-    .scene h3 {
-      font-family: 'Instrument Serif', serif; font-weight: 400;
-      font-size: 26px; letter-spacing: -0.02em; line-height: 1.1;
-      margin-top: 10px;
-    }
-    .scene p { font-size: 15px; line-height: 1.75; color: var(--ink-secondary); margin-top: 14px; }
-    .scene .emph { color: var(--ink); font-style: italic; }
+  /* Fragment cards — scattered tools */
+  .frag-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;
+  }
+  .frag {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 14px 12px;
+    background: rgba(255,255,255,0.015);
+    position: relative;
+    transform-origin: center;
+    transition: transform 0.4s var(--ease), border-color 0.4s var(--ease);
+  }
+  .frag:nth-child(1) { transform: rotate(-1.1deg); }
+  .frag:nth-child(2) { transform: rotate(1.3deg); margin-top: 18px; }
+  .frag:nth-child(3) { transform: rotate(0.7deg); margin-top: -8px; }
+  .frag:nth-child(4) { transform: rotate(-0.9deg); }
+  .frag:hover { border-color: var(--rose); transform: rotate(0) translateY(-2px); }
+  .frag-head {
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: 'Geist Mono', monospace; font-size: 10.5px;
+    color: var(--ink-muted); letter-spacing: 1.2px; text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .frag-head .dot {
+    width: 6px; height: 6px; border-radius: 50%; background: var(--ink-faint);
+  }
+  .frag-title { font-size: 13.5px; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
+  .frag-sub { font-size: 12px; color: var(--ink-muted); line-height: 1.45; }
+  .frag-mismatch {
+    margin-top: 10px; padding-top: 10px;
+    border-top: 1px dashed rgba(244,138,160,0.25);
+    font-size: 11px; color: var(--rose); font-style: italic;
+    font-family: 'Instrument Serif', serif; letter-spacing: 0;
+  }
+  .frag-field-empty { color: var(--ink-faint); font-family: 'Geist Mono', monospace; font-size: 11px; }
+  .frag-stage {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: 'Geist Mono', monospace; font-size: 10px;
+    padding: 2px 7px; border-radius: 3px;
+    background: rgba(244,138,160,0.1); color: var(--rose); letter-spacing: 1px;
+  }
 
-    /* ---------- DIFFERENT ---------- */
-    .diff { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-top: 56px; }
-    .diff-row {
-      display: grid; grid-template-columns: 1fr; gap: 20px;
-      padding: 36px 0; border-bottom: 1px solid var(--border);
-    }
-    .diff-row:last-child { border-bottom: none; }
-    @media (min-width: 820px) { .diff-row { grid-template-columns: 280px 1fr; gap: 56px; } }
-    .diff-row h3 {
-      font-family: 'Instrument Serif', serif; font-weight: 400;
-      font-size: 22px; letter-spacing: -0.015em; line-height: 1.2;
-      margin-top: 8px;
-    }
-    .diff-row p { font-size: 16px; line-height: 1.72; color: var(--ink); max-width: 620px; }
+  /* Center divider between panels */
+  .diff-divider {
+    display: none;
+    position: relative;
+    align-items: center; justify-content: center;
+    min-height: 100%;
+  }
+  @media (min-width: 1080px) {
+    .diff-divider { display: flex; }
+  }
+  .diff-divider::before {
+    content: '';
+    position: absolute; top: 0; bottom: 0; left: 50%;
+    width: 1px; transform: translateX(-50%);
+    background: linear-gradient(180deg, transparent, var(--border-warm) 30%, var(--border-warm) 70%, transparent);
+  }
+  .diff-divider-badge {
+    position: relative;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--bg-deep);
+    border: 1px solid var(--border-warm);
+    display: grid; place-items: center;
+    box-shadow: 0 0 40px -10px var(--amber-glow);
+  }
+  .diff-divider-badge svg { width: 22px; height: 22px; color: var(--amber); }
+  .diff-divider-label {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, calc(-50% + 64px));
+    font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 2px;
+    color: var(--ink-muted); text-transform: uppercase; white-space: nowrap;
+  }
 
-    /* ---------- OBJECT MODEL ---------- */
-    .under-grid { display: grid; grid-template-columns: 1fr; gap: 48px; margin-top: 48px; }
-    @media (min-width: 860px) { .under-grid { grid-template-columns: 1fr 1fr; gap: 64px; } }
-    .under-grid p { font-size: 16px; line-height: 1.72; color: var(--ink); max-width: 580px; }
-    .under-grid p + p { color: var(--ink-secondary); margin-top: 18px; }
-    dl.specs { display: flex; flex-direction: column; gap: 22px; }
-    dl.specs dt { margin-bottom: 4px; }
-    dl.specs dd { font-size: 15px; line-height: 1.65; color: var(--ink); }
+  /* Unified thread card — the "right panel" */
+  .thread {
+    border: 1px solid var(--border-warm);
+    border-radius: 14px;
+    padding: 18px 20px 20px;
+    background: rgba(255,255,255,0.02);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+  }
+  .thread-head {
+    display: flex; align-items: center; gap: 12px;
+    padding-bottom: 14px; margin-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .thread-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--amber), #b8894c);
+    color: #1a1407; display: grid; place-items: center;
+    font-weight: 600; font-size: 16px; letter-spacing: -0.02em;
+    box-shadow: 0 0 20px -4px var(--amber-glow);
+  }
+  .thread-head-body .name {
+    font-size: 17px; font-weight: 500; color: var(--ink); letter-spacing: -0.01em;
+  }
+  .thread-head-body .name em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--amber); font-weight: 400; margin-left: 4px; }
+  .thread-head-body .sub {
+    font-size: 12px; color: var(--ink-muted); margin-top: 2px;
+    font-family: 'Geist Mono', monospace; letter-spacing: 0.3px;
+  }
 
-    .object-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
-    .chip {
-      font-family: 'JetBrains Mono', monospace; font-size: 11.5px;
-      padding: 4px 10px; border-radius: 4px;
-      background: var(--bg-warm); color: var(--ink-secondary);
-      border: 1px solid var(--border);
-    }
-    .chip--accent { background: var(--accent-soft); color: var(--accent-deep); border-color: rgba(66,99,235,0.15); }
+  .thread-field-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 24px;
+    margin-bottom: 16px;
+  }
+  .thread-field .label {
+    font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 1.5px;
+    color: var(--amber); text-transform: uppercase; margin-bottom: 4px;
+  }
+  .thread-field .val {
+    font-size: 13.5px; color: var(--ink); line-height: 1.35;
+  }
+  .thread-field .val em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--ink-dim); }
 
-    /* ---------- WHO IT'S FOR (inverted) ---------- */
-    .for {
-      background: var(--ink);
-      color: var(--surface);
-      border-radius: 0;
-    }
-    .for .eyebrow { color: #d9c78e; }
-    .for h2 { color: var(--surface); }
-    .for p { color: rgba(255,250,244,0.84); }
-    .for ul { list-style: none; padding: 0; margin-top: 18px; }
-    .for li { padding: 7px 0; font-size: 16px; line-height: 1.65; display: flex; gap: 12px; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .for li:last-child { border-bottom: none; }
-    .for li::before { content: '—'; color: #d9c78e; width: 14px; display: inline-block; }
+  .thread-prose {
+    padding: 14px 16px; border-radius: 10px;
+    background: rgba(229,183,118,0.04);
+    border: 1px solid rgba(229,183,118,0.12);
+    font-family: 'Instrument Serif', serif; font-size: 16px; line-height: 1.55;
+    color: var(--ink-dim); margin-bottom: 14px;
+  }
+  .thread-prose em { color: var(--amber); font-style: italic; }
+  .thread-prose .hl { background: rgba(229,183,118,0.14); padding: 0 3px; border-radius: 3px; color: var(--ink); }
 
-    /* ---------- PRICING ---------- */
-    .tiers { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 48px; }
-    @media (min-width: 860px) { .tiers { grid-template-columns: repeat(3, 1fr); } }
-    .tier {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius-lg); padding: 28px;
-      position: relative;
-    }
-    .tier--featured { border: 1.5px solid var(--accent); box-shadow: var(--shadow-md); }
-    .tier .badge {
-      position: absolute; top: -12px; left: 20px;
-      background: var(--accent); color: #fff;
-      font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
-      letter-spacing: 0.1em; padding: 4px 10px; border-radius: 4px;
-      font-weight: 500;
-    }
-    .tier .price {
-      font-family: 'Instrument Serif', serif; font-size: 48px;
-      letter-spacing: -0.02em; margin-top: 10px;
-    }
-    .tier .price small { font-family: 'Instrument Sans', sans-serif; font-size: 15px; color: var(--ink-muted); font-weight: 500; }
-    .tier .desc { font-size: 13px; color: var(--ink-muted); margin-top: 2px; }
-    .tier ul { list-style: none; padding: 0; margin-top: 20px; display: flex; flex-direction: column; gap: 9px; }
-    .tier li { font-size: 14px; color: var(--ink); display: flex; gap: 8px; }
-    .tier li::before { content: '✓'; color: var(--green); font-weight: 600; }
+  .thread-meta-row {
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .thread-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: 'Geist Mono', monospace; font-size: 10.5px; letter-spacing: 1px;
+    padding: 5px 10px; border-radius: 4px;
+    background: rgba(229,183,118,0.08);
+    color: var(--amber);
+    border: 1px solid rgba(229,183,118,0.14);
+    text-transform: uppercase;
+  }
+  .thread-tag--cyan { background: rgba(134,195,255,0.08); color: var(--cyan); border-color: rgba(134,195,255,0.14); }
+  .thread-tag--violet { background: rgba(179,155,255,0.08); color: var(--violet); border-color: rgba(179,155,255,0.14); }
+  .thread-tag--plain { background: rgba(255,255,255,0.04); color: var(--ink-dim); border-color: var(--border); }
 
-    .context-row {
-      display: grid; grid-template-columns: 1fr; gap: 24px;
-      margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border);
-    }
-    @media (min-width: 700px) { .context-row { grid-template-columns: repeat(4, 1fr); } }
-    .context-row .big { font-family: 'Instrument Serif', serif; font-size: 24px; letter-spacing: -0.015em; }
-    .context-row .big.em { color: var(--accent); }
-    .context-row .sub { font-size: 13px; color: var(--ink-muted); margin-top: 4px; }
+  /* Under-panel short labels */
+  .diff-caption {
+    font-family: 'Geist Mono', monospace; font-size: 10.5px; letter-spacing: 1.4px;
+    color: var(--ink-muted); text-transform: uppercase;
+    margin-top: 18px;
+  }
+  .diff-summary {
+    margin-top: 40px;
+    display: grid; gap: 12px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 820px) { .diff-summary { grid-template-columns: repeat(5, 1fr); } }
+  .diff-sum-cell {
+    padding: 16px 18px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: rgba(255,255,255,0.015);
+  }
+  .diff-sum-cell .who {
+    font-family: 'Geist Mono', monospace; font-size: 10.5px; letter-spacing: 1.2px;
+    color: var(--amber); text-transform: uppercase; margin-bottom: 8px;
+  }
+  .diff-sum-cell .line {
+    font-family: 'Instrument Serif', serif; font-size: 17px; line-height: 1.35; color: var(--ink);
+  }
+  .diff-sum-cell .line em { font-style: italic; color: var(--amber); }
 
-    /* ---------- FAQ ---------- */
-    .faq-grid { display: grid; grid-template-columns: 1fr; gap: 32px; margin-top: 48px; max-width: 1040px; }
-    @media (min-width: 760px) { .faq-grid { grid-template-columns: 1fr 1fr; gap: 40px 56px; } }
-    .faq q { font-family: 'Instrument Serif', serif; font-size: 21px; letter-spacing: -0.015em; quotes: none; font-weight: 400; }
-    .faq q::before, .faq q::after { content: ''; }
-    .faq p { font-size: 15px; line-height: 1.7; color: var(--ink-secondary); margin-top: 10px; }
+  /* ============================================================
+     SECTION: WATCH IT HAPPEN (replaces under-the-hood)
+     ============================================================ */
+  .parse-stage {
+    position: relative;
+    margin-top: 48px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    background: var(--bg-glass);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: clamp(24px, 4vw, 44px);
+    overflow: hidden;
+  }
+  .parse-stage::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 30% 10%, rgba(229,183,118,0.08), transparent 45%),
+      radial-gradient(circle at 85% 80%, rgba(134,195,255,0.06), transparent 45%);
+    pointer-events: none;
+  }
+  .parse-grid {
+    position: relative;
+    display: grid; gap: 32px;
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+  @media (min-width: 1000px) {
+    .parse-grid { grid-template-columns: 1.1fr 1fr; gap: 56px; }
+  }
 
-    /* ---------- FINAL CTA ---------- */
-    .cta-final { text-align: center; }
-    .cta-final h2 { font-size: clamp(40px, 5.8vw, 80px); max-width: 900px; margin: 0 auto; }
-    .cta-final h2 i { color: var(--accent); }
-    .cta-final p { max-width: 620px; margin: 28px auto 0; font-size: 17px; line-height: 1.7; color: var(--ink-secondary); }
-    .cta-final .btn-row { justify-content: center; margin-top: 40px; }
-    .cta-final .meta { margin-top: 48px; font-size: 13px; color: var(--ink-muted); }
+  .memo {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 20px 20px;
+    background: rgba(10,11,18,0.65);
+  }
+  .memo-head {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding-bottom: 12px; margin-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .memo-head .src {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Geist Mono', monospace; font-size: 11px;
+    color: var(--ink-muted); letter-spacing: 1.2px; text-transform: uppercase;
+  }
+  .memo-head .src-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--rose);
+    box-shadow: 0 0 0 4px rgba(244,138,160,0.15);
+    animation: rec-pulse 2s ease-in-out infinite;
+  }
+  @keyframes rec-pulse {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(244,138,160,0.15); }
+    50%      { box-shadow: 0 0 0 8px rgba(244,138,160,0.05); }
+  }
+  .memo-head .dur { font-family: 'Geist Mono', monospace; font-size: 11px; color: var(--ink-faint); }
+  .memo-body {
+    font-family: 'Instrument Serif', serif; font-size: 19px; line-height: 1.55; color: var(--ink-dim);
+  }
+  .memo-body .tok {
+    padding: 1px 4px; border-radius: 4px;
+    transition: background 0.3s var(--ease);
+    cursor: default;
+    position: relative;
+  }
+  .memo-body .tok.tok-touch   { background: rgba(229,183,118,0.15); color: var(--ink); border-bottom: 1px dashed var(--amber); }
+  .memo-body .tok.tok-commit  { background: rgba(123,198,150,0.12); color: var(--ink); border-bottom: 1px dashed var(--green); }
+  .memo-body .tok.tok-partner { background: rgba(134,195,255,0.12); color: var(--ink); border-bottom: 1px dashed var(--cyan); }
+  .memo-body .tok.tok-signal  { background: rgba(244,138,160,0.12); color: var(--ink); border-bottom: 1px dashed var(--rose); }
+  .memo-body .tok.tok-init    { background: rgba(179,155,255,0.12); color: var(--ink); border-bottom: 1px dashed var(--violet); }
 
-    /* ---------- FOOTER ---------- */
-    .foot { border-top: 1px solid var(--border); padding: 36px 0 60px; }
-    .foot-row {
-      display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-end;
-      justify-content: space-between;
-    }
-    .foot-meta { font-size: 13px; color: var(--ink-muted); display: flex; flex-wrap: wrap; gap: 24px; }
-    .foot-meta a:hover { color: var(--ink); }
+  /* Extracted object cards */
+  .objs {
+    display: grid; gap: 10px;
+  }
+  .obj {
+    display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: start;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px 12px 12px;
+    background: rgba(255,255,255,0.015);
+    opacity: 0; transform: translateX(-14px);
+    animation: obj-in 0.7s var(--ease-out) forwards;
+  }
+  .obj:nth-child(1) { animation-delay: 0.05s; }
+  .obj:nth-child(2) { animation-delay: 0.20s; }
+  .obj:nth-child(3) { animation-delay: 0.35s; }
+  .obj:nth-child(4) { animation-delay: 0.50s; }
+  .obj:nth-child(5) { animation-delay: 0.65s; }
+  @keyframes obj-in {
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .obj { opacity: 1; transform: none; animation: none; }
+  }
+  .obj-badge {
+    width: 34px; height: 34px; border-radius: 8px;
+    display: grid; place-items: center;
+    font-family: 'Geist Mono', monospace; font-size: 10.5px; font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+  .obj--touch  .obj-badge { background: rgba(229,183,118,0.12); color: var(--amber); border: 1px solid rgba(229,183,118,0.22); }
+  .obj--commit .obj-badge { background: rgba(123,198,150,0.10); color: var(--green); border: 1px solid rgba(123,198,150,0.2); }
+  .obj--partner .obj-badge { background: rgba(134,195,255,0.10); color: var(--cyan); border: 1px solid rgba(134,195,255,0.2); }
+  .obj--signal .obj-badge { background: rgba(244,138,160,0.10); color: var(--rose); border: 1px solid rgba(244,138,160,0.2); }
+  .obj--init   .obj-badge { background: rgba(179,155,255,0.10); color: var(--violet); border: 1px solid rgba(179,155,255,0.2); }
+  .obj-body .type {
+    font-family: 'Geist Mono', monospace; font-size: 10.5px; letter-spacing: 1.2px;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+  .obj--touch  .obj-body .type { color: var(--amber); }
+  .obj--commit .obj-body .type { color: var(--green); }
+  .obj--partner .obj-body .type { color: var(--cyan); }
+  .obj--signal .obj-body .type { color: var(--rose); }
+  .obj--init   .obj-body .type { color: var(--violet); }
+  .obj-body .v {
+    font-size: 13.5px; color: var(--ink); line-height: 1.4;
+  }
+  .obj-body .v em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--ink-dim); }
+  .obj-body .k {
+    margin-top: 4px; font-family: 'Geist Mono', monospace; font-size: 10.5px;
+    color: var(--ink-muted); letter-spacing: 0.3px;
+  }
 
-    /* Generic helpers */
-    .muted { color: var(--ink-muted); }
-    .hr { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+  /* Object model legend */
+  .objmodel {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px dashed var(--border);
+  }
+  .objmodel-head {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 14px; flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+  .objmodel-head h4 {
+    font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 20px;
+    color: var(--ink); letter-spacing: -0.01em;
+  }
+  .objmodel-head h4 em { font-style: italic; color: var(--amber); }
+  .objmodel-legend {
+    display: flex; align-items: center; gap: 16px;
+    font-family: 'Geist Mono', monospace; font-size: 10.5px; letter-spacing: 1px;
+    color: var(--ink-muted); text-transform: uppercase;
+  }
+  .objmodel-legend .sw {
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .objmodel-legend .sw .box {
+    width: 10px; height: 10px; border-radius: 2px;
+  }
+  .objmodel-legend .sw--now .box { background: var(--amber); box-shadow: 0 0 8px var(--amber-glow); }
+  .objmodel-legend .sw--later .box { background: rgba(255,255,255,0.15); border: 1px solid var(--border-strong); }
+
+  .parse-specs {
+    margin-top: 32px;
+    display: grid; gap: 16px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 820px) { .parse-specs { grid-template-columns: repeat(4, 1fr); } }
+  .parse-spec {
+    padding: 16px 16px 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: rgba(255,255,255,0.015);
+  }
+  .parse-spec .eyebrow { margin-bottom: 8px; }
+  .parse-spec p { font-size: 13px; line-height: 1.5; color: var(--ink-dim); }
 
   </style>
 </head>
@@ -387,25 +1208,37 @@
   <!-- NAV -->
   <header class="nav">
     <div class="container nav-row">
-      <a href="#top" class="brand" aria-label="Continuous Advancement home">
+      <a href="#top" class="brand">
         <span class="brand-mark" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 22 22" fill="none">
-            <circle cx="11" cy="11" r="9.25" stroke="#241f18" stroke-width="1.25"/>
-            <path d="M4.5 11 L11 4.5 L17.5 11 L11 17.5 Z" stroke="#4263eb" stroke-width="1.25" fill="none"/>
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="ca-trail-nav" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#e5b776" stop-opacity="0"/>
+                <stop offset="45%" stop-color="#e5b776" stop-opacity="0.55"/>
+                <stop offset="100%" stop-color="#f2cd96" stop-opacity="1"/>
+              </linearGradient>
+              <radialGradient id="ca-tip-nav" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#fff3d9"/>
+                <stop offset="60%" stop-color="#f2cd96"/>
+                <stop offset="100%" stop-color="#e5b776"/>
+              </radialGradient>
+            </defs>
+            <circle cx="20" cy="20" r="14" stroke="#e5b776" stroke-width="1" fill="none" opacity="0.2"/>
+            <path class="ca-trail" d="M 6 20 A 14 14 0 0 1 30 10" stroke="url(#ca-trail-nav)" stroke-width="2.1" fill="none" stroke-linecap="round"/>
+            <circle cx="20" cy="20" r="1.6" fill="#e5b776" opacity="0.6"/>
+            <circle class="ca-tip" cx="30" cy="10" r="3" fill="url(#ca-tip-nav)"/>
           </svg>
         </span>
-        <span class="brand-name">Continuous <em>Advancement</em></span>
+        <span class="brand-name">Continuous<em>Advancement</em></span>
       </a>
       <nav class="nav-links" aria-label="Primary">
-        <a href="#shape"    class="nav-link">The job</a>
-        <a href="#product"  class="nav-link">Product</a>
-        <a href="#scenes"   class="nav-link">In practice</a>
-        <a href="#different" class="nav-link">Why this</a>
-        <a href="#pricing"  class="nav-link">Pricing</a>
+        <a class="nav-link" href="#why">The job</a>
+        <a class="nav-link" href="#product">Product</a>
+        <a class="nav-link" href="#different">Why this</a>
+        <a class="nav-link" href="#pricing">Pricing</a>
       </nav>
-      <a href="#cta" class="btn btn-accent">
-        Request access
-        <svg viewBox="0 0 14 14" fill="none"><path d="M1 7h12m0 0L8 2m5 5l-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <a class="btn btn-primary" href="#cta">Request access
+        <svg viewBox="0 0 14 14" fill="none"><path d="M1 7h12m0 0L8 2m5 5l-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
       </a>
     </div>
   </header>
@@ -414,248 +1247,448 @@
 
     <!-- HERO -->
     <section class="section hero">
+      <div class="hero-atmos">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+        <div class="glow glow-3"></div>
+      </div>
+      <div class="hero-sweep" aria-hidden="true"></div>
       <div class="container">
-        <p class="eyebrow">Continuous Advancement <span class="muted">·</span> v1 <span class="muted">·</span> Washington state</p>
-        <h1 class="display" style="margin-top:22px;">
-          You are the trust layer.<br />
-          <i style="color:var(--accent);">This is your operating system.</i>
-        </h1>
+        <p class="eyebrow">Continuous Advancement · v1 · Seattle 2026</p>
 
         <div class="hero-grid">
           <div>
+            <h1 class="h1 serif" style="font-weight:400; line-height:1;">
+              <span class="gradient-text">What if your work</span><br/>
+              <span class="gradient-text">remembered</span> <i style="color:var(--amber);">you&nbsp;back?</i>
+            </h1>
             <p class="lede">
-              You lead a mission-driven organization. That means, in any given week, you hold a dozen partner relationships, thirty donor threads, the program your team is trying to deliver, the national conversation your sector is having, and a board you are accountable to &mdash; mostly in your head, partly in email, partly in the margins of a notebook.
+              A working memory, signal desk, and draft partner for executive directors of mission-driven organizations. Continuous Advancement holds what you carry, surfaces what&rsquo;s about to die on the vine, and drafts the follow-up you never had time to write.
             </p>
-            <p>
-              Continuous Advancement is the working memory, signal desk, and draft assistant for that job. It holds what you carry, surfaces what needs attention before it dies on the vine, and drafts the follow-up so the momentum doesn&rsquo;t stop with you.
-            </p>
-            <div class="btn-row">
-              <a href="#cta" class="btn btn-primary btn-lg">
-                Request early access
-                <svg viewBox="0 0 14 14" fill="none"><path d="M1 7h12m0 0L8 2m5 5l-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <div class="actions">
+              <a class="btn btn-primary btn-lg" href="#cta">Request early access
+                <svg viewBox="0 0 14 14" fill="none"><path d="M1 7h12m0 0L8 2m5 5l-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
               </a>
-              <a href="#shape" class="text-link">Read the thesis</a>
+              <a class="btn btn-lg" href="#why">Read the thesis</a>
+            </div>
+            <div class="hero-tags">
+              <span class="hero-tag">WA&nbsp;pilot · May&nbsp;2026</span>
+              <span class="hero-tag">Private&nbsp;beta</span>
+              <span class="hero-tag">Anthropic&nbsp;inside</span>
             </div>
           </div>
 
-          <aside class="hero-aside">
-            <p class="eyebrow">What it replaces</p>
-            <ul class="replace-list">
-              <li>A chief of staff you can&rsquo;t afford</li>
-              <li>A CRM built for sales teams</li>
-              <li>A donor database that knows only donors</li>
-              <li>A chat assistant that forgets by Friday</li>
-              <li>A notebook, an inbox, and fourteen open tabs</li>
-            </ul>
-
-            <div class="price-card">
-              <p class="eyebrow">Starting at</p>
-              <p class="price" style="margin-top:6px;">$250<small>&thinsp;/&thinsp;mo</small></p>
-              <p style="font-size:13px; color:var(--ink-muted); margin-top:4px; line-height:1.5;">Less than 2% of a chief of staff. More than a thousand times the coverage.</p>
+          <!-- HERO PRODUCT MOCKUP: Pulse -->
+          <div class="mock-stage" aria-hidden="true">
+            <div class="panel" style="transform: rotate(-0.4deg);">
+              <div class="panel-chrome">
+                <div class="chrome-dots"><span></span><span></span><span></span></div>
+                <div class="chrome-label">Pulse &middot; Thursday, 9:04&thinsp;AM</div>
+                <div class="chrome-label" style="font-size:10px; opacity:0.6;">⌘&nbsp;K</div>
+              </div>
+              <div class="panel-body">
+                <div class="pulse-item pulse-item--top">
+                  <div class="pulse-icon">M</div>
+                  <div class="pulse-body">
+                    <div class="title">Margaret Chen &mdash; cultivation window</div>
+                    <div class="sub">Last meaningful touch 92 days. Annual cycle opens in 14 weeks. DelRosario board moved her to program committee.</div>
+                    <span class="cta">→ Draft reach-out</span>
+                  </div>
+                  <span class="pulse-meta">PRIORITY 1</span>
+                </div>
+                <div class="pulse-item">
+                  <div class="pulse-icon">W</div>
+                  <div class="pulse-body">
+                    <div class="title">Marcus Williams &mdash; path to DelRosario</div>
+                    <div class="sub">Mentioned Monday. 51 days since last contact.</div>
+                  </div>
+                  <span class="pulse-meta">P2</span>
+                </div>
+                <div class="pulse-item">
+                  <div class="pulse-icon">T</div>
+                  <div class="pulse-body">
+                    <div class="title">Tacoma Urban League &mdash; quiet thread</div>
+                    <div class="sub">Commitment made Mar 28, no follow-up logged.</div>
+                  </div>
+                  <span class="pulse-meta">P2</span>
+                </div>
+                <div class="pulse-item">
+                  <div class="pulse-icon">B</div>
+                  <div class="pulse-body">
+                    <div class="title">Board &mdash; Q2 packet</div>
+                    <div class="sub">Meeting in 12 days. Draft prep ready to review.</div>
+                  </div>
+                  <span class="pulse-meta">P3</span>
+                </div>
+              </div>
+              <div class="panel-foot">
+                <span>5 items today · 2 drafts ready</span>
+                <span>✶ Pulse recomputes at 6&thinsp;AM</span>
+              </div>
             </div>
-          </aside>
+          </div>
+        </div>
+
+        <div class="scroll-cue">scroll ↓</div>
+      </div>
+    </section>
+
+    <!-- VOICE MEMO SCENE -->
+    <section class="section" id="why">
+      <div class="container">
+        <div class="sec-head reveal">
+          <span class="eyebrow">Tuesday · 7:42 AM</span>
+          <h2 class="h2 serif" style="font-weight:400;">
+            You hold down the button<br/>and talk for three minutes.<br/>
+            <i style="color:var(--amber);">By the time you park,</i>
+            <span class="gradient-text">it&rsquo;s done.</span>
+          </h2>
+          <p class="lede-sub">
+            One voice memo &mdash; your partner meeting debrief &mdash; lands in the Inbox. An understanding pass extracts commitments, updates Threads, drafts follow-ups, and surfaces a quiet relationship before the window closes. You do nothing. The tool does everything.
+          </p>
+        </div>
+
+        <div class="scene-box reveal" aria-hidden="true">
+
+          <!-- Voice panel -->
+          <div class="panel voice-panel">
+            <div class="panel-chrome">
+              <div class="chrome-dots"><span></span><span></span><span></span></div>
+              <div class="chrome-label">Inbox · voice memo</div>
+              <div class="chrome-label" style="opacity:0.6;">03:14</div>
+            </div>
+            <div class="waveform">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div style="text-align:center; font-family:'Geist Mono',monospace; font-size:11.5px; color:var(--ink-muted); letter-spacing:0.1em;">
+              &ldquo;Okay so the Lisa meeting went well, she wants to push on the capital piece…&rdquo;
+            </div>
+            <div style="margin-top:20px; padding-top:20px; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center;">
+              <span class="eyebrow eyebrow--plain" style="margin:0;"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="3" fill="#e5b776"/></svg>&nbsp;&nbsp;Understanding pass · running</span>
+              <span style="font-family:'Geist Mono',monospace; font-size:10.5px; color:var(--amber);">◐ 94%</span>
+            </div>
+          </div>
+
+          <div class="scene-arrow">
+            <span>extracts</span>
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 14h20m0 0l-6-6m6 6l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span>structured</span>
+          </div>
+
+          <!-- Extracted panel -->
+          <div class="panel extracted">
+            <h4>Commitments</h4>
+            <ul>
+              <li><span>Send Lisa Q1 impact deck</span><span class="tag">Due Fri</span></li>
+              <li><span>Intro Marcus to Dr. Hernandez</span><span class="tag">Overdue 34d</span></li>
+              <li><span>Revise proposal to $85K capital</span><span class="tag tag--cyan">New</span></li>
+              <li><span>Circle back on board composition</span><span class="tag tag--cyan">+Thread</span></li>
+            </ul>
+            <h4>Partnerships updated</h4>
+            <ul>
+              <li><span>DelRosario Foundation</span><span class="tag tag--cyan">Thread</span></li>
+              <li><span>Tacoma Urban League</span><span class="tag tag--cyan">Thread</span></li>
+            </ul>
+            <h4>Signal raised</h4>
+            <ul>
+              <li><span>Marcus Williams &mdash; 51 days silent</span><span class="tag tag--rose">Flag</span></li>
+            </ul>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- SHAPE OF THE JOB -->
-    <section id="shape" class="section rule-top">
+    <!-- FIVE AXIS -->
+    <section class="section" style="background: linear-gradient(180deg, transparent, rgba(255,255,255,0.01));">
       <div class="container">
-        <div class="sec-head">
-          <p class="eyebrow eyebrow--terra">The shape of the job</p>
-          <h2>Most tools are built for a<br/>narrower job than yours.</h2>
+        <div class="sec-head reveal">
+          <span class="eyebrow eyebrow--cyan">The shape of the job</span>
+          <h2 class="h2 serif" style="font-weight:400;">
+            You don&rsquo;t have <i>a funnel.</i><br/>
+            You have <span class="gradient-cool">five axes</span><br/>
+            that compound over years.
+          </h2>
+          <p class="lede-sub">
+            Sales teams move opportunities through stages. Program managers close tickets. Individual contributors own tasks. You do none of those things. You lead on five axes at once &mdash; and no tool on the market holds all five.
+          </p>
         </div>
 
-        <div class="shape-grid">
-          <div>
-            <p class="lede">
-              Sales teams move opportunities through a funnel. Program managers close tickets. Individual contributors own tasks. You do none of those things. Executive directors lead on <i>five axes simultaneously</i> &mdash; and no tool on the market holds all five.
-            </p>
-            <p style="margin-top:20px; font-size:16px; line-height:1.72; color:var(--ink-secondary);">
-              Continuous Advancement is structured around the shape of the job, not a legacy sales process. Partnerships, donors, corps members, alumni, board members, and peer EDs are co-equal first-class objects &mdash; each with its own cadence, its own history, its own prose.
-            </p>
-          </div>
+        <!-- Axis diagram -->
+        <div class="axis-stage reveal" aria-label="Five axes of executive director leadership around you as the trust layer">
+          <svg viewBox="0 0 560 560" style="width:100%; max-width:560px; display:block; position:relative; z-index:1;">
+            <defs>
+              <radialGradient id="coreGrad" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#f2cd96"/>
+                <stop offset="60%" stop-color="#e5b776"/>
+                <stop offset="100%" stop-color="#8d6a35"/>
+              </radialGradient>
+              <linearGradient id="nodeGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#1a1c26"/>
+                <stop offset="100%" stop-color="#0e1018"/>
+              </linearGradient>
+              <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="6" />
+              </filter>
+            </defs>
 
-          <!-- 5-axis diagram -->
-          <div>
-            <svg viewBox="0 0 480 480" style="width:100%; max-width:460px; margin:0 auto; display:block;" aria-label="Five axes of the executive director's role centered around the ED as trust layer">
-              <defs>
-                <radialGradient id="centerG" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stop-color="#4263eb" stop-opacity="0.95"/>
-                  <stop offset="100%" stop-color="#2f4bb5" stop-opacity="1"/>
-                </radialGradient>
-              </defs>
-              <g stroke="#e8ddce" stroke-width="1" stroke-dasharray="2 4">
-                <line x1="240" y1="240" x2="240" y2="60"/>
-                <line x1="240" y1="240" x2="400" y2="150"/>
-                <line x1="240" y1="240" x2="360" y2="400"/>
-                <line x1="240" y1="240" x2="120" y2="400"/>
-                <line x1="240" y1="240" x2="80"  y2="150"/>
-              </g>
-              <circle cx="240" cy="240" r="46" fill="url(#centerG)"/>
-              <text x="240" y="238" text-anchor="middle" fill="#fff" font-family="Instrument Serif" font-size="16" font-style="italic">You</text>
-              <text x="240" y="256" text-anchor="middle" fill="#fff" font-family="JetBrains Mono" font-size="9.5" letter-spacing="0.12em">TRUST LAYER</text>
+            <!-- orbits -->
+            <circle cx="280" cy="280" r="210" fill="none" stroke="rgba(229,183,118,0.15)" stroke-width="1" stroke-dasharray="2 6"/>
+            <circle cx="280" cy="280" r="130" fill="none" stroke="rgba(229,183,118,0.08)" stroke-width="1"/>
 
-              <g font-family="Instrument Sans" font-size="13" font-weight="500" fill="#241f18">
-                <circle cx="240" cy="60" r="36" fill="#fffaf4" stroke="#241f18" stroke-width="1.25"/>
-                <text x="240" y="57" text-anchor="middle">Partner-</text>
-                <text x="240" y="72" text-anchor="middle">ships</text>
+            <!-- radial lines -->
+            <g stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="2 5">
+              <line x1="280" y1="280" x2="280" y2="70"/>
+              <line x1="280" y1="280" x2="480" y2="180"/>
+              <line x1="280" y1="280" x2="420" y2="480"/>
+              <line x1="280" y1="280" x2="140" y2="480"/>
+              <line x1="280" y1="280" x2="80"  y2="180"/>
+            </g>
 
-                <circle cx="400" cy="150" r="36" fill="#fffaf4" stroke="#241f18" stroke-width="1.25"/>
-                <text x="400" y="147" text-anchor="middle">Develop-</text>
-                <text x="400" y="162" text-anchor="middle">ment</text>
+            <!-- glow halo around core -->
+            <circle cx="280" cy="280" r="60" fill="#e5b776" opacity="0.25" filter="url(#soft)"/>
 
-                <circle cx="360" cy="400" r="36" fill="#fffaf4" stroke="#241f18" stroke-width="1.25"/>
-                <text x="360" y="404" text-anchor="middle">Program</text>
+            <!-- core -->
+            <circle cx="280" cy="280" r="54" fill="url(#coreGrad)"/>
+            <text x="280" y="278" text-anchor="middle" fill="#1a1407" font-family="Instrument Serif" font-size="18" font-style="italic">You</text>
+            <text x="280" y="297" text-anchor="middle" fill="#1a1407" font-family="Geist Mono" font-size="9" letter-spacing="0.14em" opacity="0.8">TRUST&nbsp;LAYER</text>
 
-                <circle cx="120" cy="400" r="36" fill="#fffaf4" stroke="#241f18" stroke-width="1.25"/>
-                <text x="120" y="397" text-anchor="middle">Team &amp;</text>
-                <text x="120" y="412" text-anchor="middle">Board</text>
+            <!-- nodes -->
+            <g font-family="Geist" font-size="13" font-weight="500" fill="#f5efdf">
+              <circle cx="280" cy="70"  r="40" fill="url(#nodeGrad)" stroke="#e5b776" stroke-opacity="0.35" stroke-width="1"/>
+              <text x="280" y="67" text-anchor="middle">Partner-</text>
+              <text x="280" y="82" text-anchor="middle">ships</text>
 
-                <circle cx="80"  cy="150" r="36" fill="#fffaf4" stroke="#241f18" stroke-width="1.25"/>
-                <text x="80"  y="147" text-anchor="middle">National</text>
-                <text x="80"  y="162" text-anchor="middle">&amp; Industry</text>
-              </g>
-            </svg>
-          </div>
+              <circle cx="480" cy="180" r="40" fill="url(#nodeGrad)" stroke="#e5b776" stroke-opacity="0.35" stroke-width="1"/>
+              <text x="480" y="177" text-anchor="middle">Develop-</text>
+              <text x="480" y="192" text-anchor="middle">ment</text>
+
+              <circle cx="420" cy="480" r="40" fill="url(#nodeGrad)" stroke="#e5b776" stroke-opacity="0.35" stroke-width="1"/>
+              <text x="420" y="484" text-anchor="middle">Program</text>
+
+              <circle cx="140" cy="480" r="40" fill="url(#nodeGrad)" stroke="#e5b776" stroke-opacity="0.35" stroke-width="1"/>
+              <text x="140" y="477" text-anchor="middle">Team &amp;</text>
+              <text x="140" y="492" text-anchor="middle">Board</text>
+
+              <circle cx="80"  cy="180" r="40" fill="url(#nodeGrad)" stroke="#e5b776" stroke-opacity="0.35" stroke-width="1"/>
+              <text x="80"  y="177" text-anchor="middle">National</text>
+              <text x="80"  y="192" text-anchor="middle">&amp; Industry</text>
+            </g>
+          </svg>
         </div>
 
-        <div class="axes">
-          <div class="axis">
-            <span class="eyebrow eyebrow--terra">01 · Partnerships</span>
+        <!-- Axis cells -->
+        <div class="axes-row reveal">
+          <div class="axis-cell">
+            <span class="axis-num">01</span>
+            <h4>Partnerships</h4>
             <p>Funders, peers, community, coalition. Relationships that compound over years, not quarters.</p>
           </div>
-          <div class="axis">
-            <span class="eyebrow eyebrow--terra">02 · Development</span>
+          <div class="axis-cell">
+            <span class="axis-num">02</span>
+            <h4>Development</h4>
             <p>Cultivation, stewardship, ask, close, renewal. Donor relationships as trust arcs, not transactions.</p>
           </div>
-          <div class="axis">
-            <span class="eyebrow eyebrow--terra">03 · Program</span>
+          <div class="axis-cell">
+            <span class="axis-num">03</span>
+            <h4>Program</h4>
             <p>What your corps, students, clients, participants actually experience, week by week.</p>
           </div>
-          <div class="axis">
-            <span class="eyebrow eyebrow--terra">04 · National</span>
+          <div class="axis-cell">
+            <span class="axis-num">04</span>
+            <h4>National</h4>
             <p>Where the field is moving. What the sector needs. Where your voice belongs.</p>
           </div>
-          <div class="axis">
-            <span class="eyebrow eyebrow--terra">05 · Team &amp; Board</span>
+          <div class="axis-cell">
+            <span class="axis-num">05</span>
+            <h4>Team &amp; Board</h4>
             <p>The humans you manage, the humans you answer to, and the cadences that keep them in the room.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PRODUCT SURFACES -->
-    <section id="product" class="section rule-top" style="background:var(--surface-alt);">
+    <!-- THREE SURFACES -->
+    <section class="section" id="product">
       <div class="container">
-        <div class="sec-head">
-          <p class="eyebrow eyebrow--accent">The product</p>
-          <h2>Three surfaces. Built for<br/>how you actually work.</h2>
-          <p class="lede-sub">Inbox is where messy information goes in. Pulse is what you open in the morning. Threads is where you go to prepare, remember, and draft. Everything else happens underneath.</p>
+        <div class="sec-head reveal">
+          <span class="eyebrow">The product</span>
+          <h2 class="h2 serif" style="font-weight:400;">
+            Three surfaces.<br/>
+            <span class="gradient-text">Built for how you<br/>actually work.</span>
+          </h2>
+          <p class="lede-sub">
+            Inbox is where messy information goes in. Pulse is what you open in the morning. Threads is where you prepare, remember, and draft. Everything else happens underneath.
+          </p>
         </div>
 
         <div class="surfaces">
 
           <!-- INBOX -->
-          <article class="surface">
-            <p class="eyebrow">01 · Inbox</p>
-            <h3>One place for everything unprocessed.</h3>
-            <p class="ink">Voice memo on the drive in. Forwarded email. Screenshot from a board chair. Granola transcript from a partner meeting. Four lines typed at a red light. It all goes here.</p>
-            <p>Continuous Advancement parses each input, files it to the right Person, Partnership, Commitment, or Thread, and raises anything time-sensitive. You don&rsquo;t organize. You talk. It understands.</p>
-
-            <div class="mock" aria-hidden="true">
-              <div class="mock-head">
-                <span class="eyebrow">Inbox <span class="muted">·</span> today</span>
-                <span class="mono" style="font-size:11px; color:var(--ink-faint);">7 items</span>
-              </div>
-              <div class="mock-body">
-                <div class="mock-item">
-                  <span class="dot"></span>
-                  <div>
-                    <div class="title">Voice memo &mdash; 3m&thinsp;14s</div>
-                    <div class="sub">Parsed: 4 commitments, 2 partnerships, 1 new person</div>
-                  </div>
-                  <span class="meta">7:42a</span>
+          <article class="surface reveal">
+            <div class="surface-copy">
+              <span class="eyebrow">01 · Inbox</span>
+              <h3 class="h3 serif" style="font-weight:400;">One place for<br/>everything unprocessed.</h3>
+              <p>Voice memo on the drive in. Forwarded email. Screenshot from a board chair. Granola transcript from a partner meeting. Four lines typed at a red light.</p>
+              <p>It all goes here. The Understanding Pass parses each input, files it to the right Person, Partnership, Commitment, or Thread, and raises anything time-sensitive. You don&rsquo;t organize. You talk. It understands.</p>
+              <ul class="surface-features">
+                <li>Voice, email, text, image, transcript &mdash; one input surface</li>
+                <li>Typed object extraction preserves the prose, never flattens it</li>
+                <li>Every parse is reversible &mdash; you can always edit or reject</li>
+              </ul>
+            </div>
+            <div class="surface-mock mock-stage" aria-hidden="true">
+              <div class="panel" style="transform: rotate(0.3deg);">
+                <div class="panel-chrome">
+                  <div class="chrome-dots"><span></span><span></span><span></span></div>
+                  <div class="chrome-label">Inbox · today</div>
+                  <div class="chrome-label" style="opacity:0.6;">7 items</div>
                 </div>
-                <div class="mock-item">
-                  <span class="dot flag"></span>
-                  <div>
-                    <div class="title">Email &mdash; Fwd: Following up from Tuesday</div>
-                    <div class="sub">Linked: DelRosario Foundation · Margaret Chen</div>
+                <div class="panel-body">
+                  <div class="inbox-item">
+                    <div class="inbox-icon" aria-hidden="true">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Zm-7 9a7 7 0 0 0 14 0M12 19v3"/></svg>
+                    </div>
+                    <div class="inbox-body">
+                      <div class="t">Voice memo &mdash; 3m&thinsp;14s</div>
+                      <div class="s">Lisa debrief, partner strategy<span class="dot"></span>parsed</div>
+                      <div class="parsed"><span>+4 commits</span><span>+2 threads</span><span>+1 signal</span></div>
+                    </div>
+                    <span class="inbox-meta">7:42a</span>
                   </div>
-                  <span class="meta">8:15a</span>
-                </div>
-                <div class="mock-item">
-                  <span class="dot quiet"></span>
-                  <div>
-                    <div class="title">Granola transcript &mdash; Board chair 1:1</div>
-                    <div class="sub">Parsed: 2 commitments, 1 risk flagged</div>
+                  <div class="inbox-item">
+                    <div class="inbox-icon violet" aria-hidden="true">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16v12H4zm0 0l8 6 8-6"/></svg>
+                    </div>
+                    <div class="inbox-body">
+                      <div class="t">Fwd: Following up from Tuesday</div>
+                      <div class="s">margaret@delrosario.org<span class="dot"></span>linked to 2 threads</div>
+                    </div>
+                    <span class="inbox-meta">8:15a</span>
                   </div>
-                  <span class="meta">9:03a</span>
-                </div>
-                <div class="mock-item">
-                  <span class="dot quiet"></span>
-                  <div>
-                    <div class="title">Note &mdash; &ldquo;School visit notes, Tacoma&rdquo;</div>
-                    <div class="sub">Parsed: program signals, 3 corps mentions</div>
+                  <div class="inbox-item">
+                    <div class="inbox-icon cyan" aria-hidden="true">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M4 10h16M10 5v14"/></svg>
+                    </div>
+                    <div class="inbox-body">
+                      <div class="t">Granola transcript &mdash; Board chair 1:1</div>
+                      <div class="s">38 min<span class="dot"></span>2 commitments<span class="dot"></span>1 risk flagged</div>
+                    </div>
+                    <span class="inbox-meta">9:03a</span>
                   </div>
-                  <span class="meta">2:40p</span>
+                  <div class="inbox-item">
+                    <div class="inbox-icon rose" aria-hidden="true">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 5h16M4 12h10M4 19h16"/></svg>
+                    </div>
+                    <div class="inbox-body">
+                      <div class="t">Note &mdash; School visit, Tacoma</div>
+                      <div class="s">Program signals &middot; 3 corps mentions</div>
+                    </div>
+                    <span class="inbox-meta">2:40p</span>
+                  </div>
                 </div>
               </div>
             </div>
           </article>
 
           <!-- PULSE -->
-          <article class="surface">
-            <p class="eyebrow">02 · Pulse</p>
-            <h3>A ranked list. Not a dashboard.</h3>
-            <p class="ink">When you open Continuous Advancement in the morning, you don&rsquo;t see metrics. You see the five to eight things most worth your attention today, each with a proposed draft action.</p>
-            <p>A partner you haven&rsquo;t heard from in six weeks whose funding cycle closes next month. A commitment you made on a call ten days ago that no one has followed up on. A donor signal that looks cultivation-ready. Each item is explainable: here&rsquo;s why we raised it.</p>
-
-            <div class="mock" aria-hidden="true">
-              <div class="mock-head">
-                <span class="eyebrow">Pulse <span class="muted">·</span> Thursday</span>
-                <span class="mono" style="font-size:11px; color:var(--ink-faint);">5 items</span>
-              </div>
-              <div class="mock-body" style="padding: 6px 0;">
-                <div class="pulse-item top">
-                  <div class="title">Margaret Chen &mdash; cultivation window</div>
-                  <div class="sub">Last meaningful touch 92 days. Cycle opens in 14 weeks.</div>
-                  <span class="cta">Draft reach-out &rarr;</span>
+          <article class="surface surface--flip reveal">
+            <div class="surface-copy">
+              <span class="eyebrow eyebrow--cyan">02 · Pulse</span>
+              <h3 class="h3 serif" style="font-weight:400;">A ranked list.<br/>Not a dashboard.</h3>
+              <p>When you open Continuous Advancement in the morning, you don&rsquo;t see metrics. You see the five to eight things most worth your attention today, each with a proposed draft action.</p>
+              <p>A partner you haven&rsquo;t heard from in six weeks whose funding cycle closes next month. A commitment you made on a call ten days ago that no one has followed up on. A donor signal that looks cultivation-ready. Each item is explainable: here&rsquo;s why we raised it.</p>
+              <ul class="surface-features">
+                <li>Ranked by decay velocity, not vanity metrics</li>
+                <li>Each item comes with a pre-drafted action you can edit or send</li>
+                <li>Recomputes at 6 AM; refreshes as new signal arrives</li>
+              </ul>
+            </div>
+            <div class="surface-mock mock-stage" aria-hidden="true">
+              <div class="panel" style="transform: rotate(-0.4deg);">
+                <div class="panel-chrome">
+                  <div class="chrome-dots"><span></span><span></span><span></span></div>
+                  <div class="chrome-label">Pulse · Thursday</div>
+                  <div class="chrome-label" style="opacity:0.6;">5 items</div>
                 </div>
-                <div class="pulse-item">
-                  <div class="title">Marcus Williams &mdash; path to DelRosario</div>
-                  <div class="sub">Mentioned Mon; 51 days since last contact.</div>
+                <div class="panel-body">
+                  <div class="pulse-item pulse-item--top">
+                    <div class="pulse-icon">M</div>
+                    <div class="pulse-body">
+                      <div class="title">Margaret Chen &mdash; cultivation window</div>
+                      <div class="sub">Last touch 92d. Cycle opens in 14w. Committee shift detected.</div>
+                      <span class="cta">→ Draft reach-out (2 sentences)</span>
+                    </div>
+                    <span class="pulse-meta">P1</span>
+                  </div>
+                  <div class="pulse-item">
+                    <div class="pulse-icon">W</div>
+                    <div class="pulse-body">
+                      <div class="title">Marcus Williams &mdash; path to DelRosario</div>
+                      <div class="sub">Mentioned Mon. 51d since last contact.</div>
+                    </div>
+                    <span class="pulse-meta">P2</span>
+                  </div>
+                  <div class="pulse-item">
+                    <div class="pulse-icon">T</div>
+                    <div class="pulse-body">
+                      <div class="title">Tacoma Urban League &mdash; quiet thread</div>
+                      <div class="sub">Commitment logged Mar 28, no follow-up.</div>
+                    </div>
+                    <span class="pulse-meta">P2</span>
+                  </div>
+                  <div class="pulse-item">
+                    <div class="pulse-icon">B</div>
+                    <div class="pulse-body">
+                      <div class="title">Board &mdash; Q2 packet ready to review</div>
+                      <div class="sub">Meeting in 12 days. Draft prep waiting.</div>
+                    </div>
+                    <span class="pulse-meta">P3</span>
+                  </div>
                 </div>
-                <div class="pulse-item">
-                  <div class="title">Tacoma Urban League &mdash; quiet thread</div>
-                  <div class="sub">Commitment made Mar 28, no follow-up logged.</div>
-                </div>
-                <div class="pulse-item">
-                  <div class="title">Board &mdash; Q2 packet</div>
-                  <div class="sub">Meeting in 12 days. Draft prep available.</div>
+                <div class="panel-foot">
+                  <span>✶ ranked by decay velocity</span>
+                  <span>next refresh · 6:00 AM</span>
                 </div>
               </div>
             </div>
           </article>
 
           <!-- THREADS -->
-          <article class="surface">
-            <p class="eyebrow">03 · Threads</p>
-            <h3>The prose-rich memory of every relationship.</h3>
-            <p class="ink">When you want to prepare for a call, a board meeting, or a strategy conversation, open the Thread. Every touchpoint, commitment, and signal is assembled as prose &mdash; not a feed &mdash; alongside a draft of whatever you&rsquo;re about to write.</p>
-            <p>A Thread is what you wished your CRM had been all along: the story of a relationship, not a log of activities. Partnerships, donors, board members, program sites, and initiatives each have one.</p>
-
-            <div class="mock" aria-hidden="true">
-              <div class="mock-head">
-                <span class="eyebrow">Thread <span class="muted">·</span> Margaret Chen</span>
-                <span class="mono" style="font-size:11px; color:var(--ink-faint);">92 days since touch</span>
-              </div>
-              <div class="thread-body">
-                <p><em>Since your last meaningful conversation in January,</em> Margaret has moved from the board of the DelRosario Foundation to its program committee &mdash; which means her review window for your partnership proposal has shifted by about eight weeks.</p>
-                <p>She mentioned in January that her board was reconsidering capital gifts above $100K. Your current proposal is at $85K, which sits comfortably under that threshold.</p>
-                <p class="commit">Outstanding commitments: share Q1 outcomes (overdue 18d); intro to Dr. Hernandez (overdue 34d).</p>
-                <span class="cta">&rarr;&nbsp; Draft follow-up email</span>
+          <article class="surface reveal">
+            <div class="surface-copy">
+              <span class="eyebrow eyebrow--violet">03 · Threads</span>
+              <h3 class="h3 serif" style="font-weight:400;">The prose-rich memory<br/>of every relationship.</h3>
+              <p>When you want to prepare for a call, a board meeting, or a strategy conversation, open the Thread. Every touchpoint, commitment, and signal is assembled as prose &mdash; not a feed &mdash; alongside a draft of whatever you&rsquo;re about to write.</p>
+              <p>A Thread is what you wished your CRM had been all along: the story of a relationship, not a log of activities. Partnerships, donors, board members, program sites, and initiatives each have one.</p>
+              <ul class="surface-features">
+                <li>Narrative summaries, not activity feeds</li>
+                <li>Auto-assembled from every input mentioning this entity</li>
+                <li>One-click drafts, always grounded in the full history</li>
+              </ul>
+            </div>
+            <div class="surface-mock mock-stage" aria-hidden="true">
+              <div class="panel" style="transform: rotate(0.5deg);">
+                <div class="panel-chrome">
+                  <div class="chrome-dots"><span></span><span></span><span></span></div>
+                  <div class="chrome-label">Thread · Margaret Chen</div>
+                  <div class="chrome-label" style="opacity:0.6;">92d silent</div>
+                </div>
+                <div class="thread-content">
+                  <p><em>Since your last meaningful conversation in January,</em> Margaret has moved from the board of the DelRosario Foundation to its program committee &mdash; which means her review window for your partnership proposal has shifted by about eight weeks.</p>
+                  <p>She mentioned in January her board was reconsidering capital gifts above $100K. Your current proposal is at $85K, which sits comfortably under that threshold.</p>
+                  <div class="outstanding">
+                    <span class="label">Outstanding</span>
+                    <span>Share Q1 outcomes &mdash; overdue 18d</span>
+                    <span>Intro to Dr. Hernandez &mdash; overdue 34d</span>
+                  </div>
+                  <a href="#" class="draft-btn">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12l10-10M12 2v4M12 2H8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                    Draft follow-up
+                  </a>
+                </div>
               </div>
             </div>
           </article>
@@ -664,212 +1697,366 @@
       </div>
     </section>
 
-    <!-- SCENES -->
-    <section id="scenes" class="section rule-top">
+    <!-- DIFFERENT — See it, don't read it -->
+    <section class="section" id="different" style="background: linear-gradient(180deg, transparent, rgba(0,0,0,0.3));">
       <div class="container">
-        <div class="sec-head">
-          <p class="eyebrow eyebrow--terra">In practice</p>
-          <h2>Three scenes from a week.</h2>
+        <div class="sec-head reveal">
+          <span class="eyebrow">See the difference</span>
+          <h2 class="h2 serif" style="font-weight:400;">
+            One&nbsp;person.<br/>
+            <i style="color:var(--amber);">Everywhere, and nowhere.</i>
+          </h2>
+          <p class="lede-sub">
+            Meet Margaret Chen &mdash; board chair, program volunteer, prospective donor, and the person you need to reach this week. Here&rsquo;s where she lives today, and where she should live.
+          </p>
         </div>
 
-        <div class="scenes">
-          <figure class="scene">
-            <p class="eyebrow">Tuesday · 7:42a</p>
-            <h3>The drive-in memo.</h3>
-            <p>You hold down the button and talk for three minutes about the partner meeting you had yesterday. By the time you park, Continuous Advancement has extracted four commitments, updated two Partnership threads, drafted a follow-up email to Lisa, and surfaced that Marcus &mdash; mentioned in passing &mdash; hasn&rsquo;t heard from you in 51 days despite being your path into the DelRosario Foundation.</p>
-          </figure>
-          <figure class="scene">
-            <p class="eyebrow">Thursday · 9:00a</p>
-            <h3>The Pulse read.</h3>
-            <p>Pulse surfaces five items. One of them: <span class="emph">&ldquo;Margaret Chen &mdash; cultivation window. Last meaningful touch: 92 days. Annual giving cycle starts in 14 weeks.&rdquo;</span> A draft of two sentences waits beneath it. You read, edit one phrase, and send. The whole exchange is forty seconds.</p>
-          </figure>
-          <figure class="scene">
-            <p class="eyebrow">Friday · 3:15p</p>
-            <h3>The board packet.</h3>
-            <p>You open the Board thread. Continuous Advancement has assembled a one-page prose summary of the last quarter: partnerships won and lost, program outcomes, development progress against goal, team transitions, open risks. Two paragraphs are drafted. Three need your read. You review in ten minutes instead of three hours.</p>
-          </figure>
+        <div class="diff-stage reveal">
+          <!-- LEFT: fragmented across tools -->
+          <div class="diff-panel diff-panel--left">
+            <div class="diff-panel-head">
+              <h3>In the tools you&rsquo;ve <em>already tried</em></h3>
+              <span class="mono" style="font-size:10.5px; color:var(--ink-muted); letter-spacing:1.4px; text-transform:uppercase;">4 tabs · 0 memory</span>
+            </div>
+
+            <div class="frag-grid">
+              <!-- Salesforce fragment -->
+              <div class="frag">
+                <div class="frag-head">
+                  <span>Salesforce · NPSP</span>
+                  <span class="dot" style="background:#00a1e0;"></span>
+                </div>
+                <div class="frag-title">Margaret Chen</div>
+                <div class="frag-sub">Opportunity &middot; $0</div>
+                <div class="frag-sub" style="margin-top:6px;"><span class="frag-stage">STAGE · QUALIFIED</span></div>
+                <div class="frag-mismatch">&ldquo;She&rsquo;s not an opportunity. She&rsquo;s your board chair.&rdquo;</div>
+              </div>
+
+              <!-- Bloomerang fragment -->
+              <div class="frag">
+                <div class="frag-head">
+                  <span>Bloomerang</span>
+                  <span class="dot" style="background:#f58220;"></span>
+                </div>
+                <div class="frag-title">Chen, Margaret</div>
+                <div class="frag-sub">Lifetime giving: <span class="frag-field-empty">$0.00</span></div>
+                <div class="frag-sub">Last gift: <span class="frag-field-empty">&mdash;</span></div>
+                <div class="frag-mismatch">&ldquo;Board role, program committee &mdash; not donor data.&rdquo;</div>
+              </div>
+
+              <!-- Notion fragment -->
+              <div class="frag">
+                <div class="frag-head">
+                  <span>Notion</span>
+                  <span class="dot" style="background:#ffffff;"></span>
+                </div>
+                <div class="frag-title">☐ Touch base w/ Margaret</div>
+                <div class="frag-sub">Due: <span class="frag-field-empty">overdue 11d</span></div>
+                <div class="frag-sub">Tags: <span class="frag-field-empty">#board</span></div>
+                <div class="frag-mismatch">&ldquo;A checkbox. No context. No why.&rdquo;</div>
+              </div>
+
+              <!-- Claude fragment -->
+              <div class="frag">
+                <div class="frag-head">
+                  <span>Claude · ChatGPT</span>
+                  <span class="dot" style="background:#d97757;"></span>
+                </div>
+                <div class="frag-title">&ldquo;Who&rsquo;s Margaret Chen?&rdquo;</div>
+                <div class="frag-sub" style="font-style:italic; color:var(--ink-muted);">I don&rsquo;t have any information about a Margaret Chen&hellip;</div>
+                <div class="frag-mismatch">&ldquo;Brilliant. Stateless. Resets every Monday.&rdquo;</div>
+              </div>
+            </div>
+
+            <div class="diff-caption">Four sources of truth. None of them true.</div>
+          </div>
+
+          <!-- CENTER DIVIDER -->
+          <div class="diff-divider" aria-hidden="true">
+            <div class="diff-divider-badge">
+              <svg viewBox="0 0 14 14" fill="none"><path d="M1 7h12m0 0L8 2m5 5l-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+            <div class="diff-divider-label">One&nbsp;thread</div>
+          </div>
+
+          <!-- RIGHT: unified thread -->
+          <div class="diff-panel diff-panel--right">
+            <div class="diff-panel-head">
+              <h3>In <em>Continuous Advancement</em></h3>
+              <span class="mono" style="font-size:10.5px; color:var(--amber); letter-spacing:1.4px; text-transform:uppercase;">1 thread · all of her</span>
+            </div>
+
+            <div class="thread">
+              <div class="thread-head">
+                <div class="thread-avatar">M</div>
+                <div class="thread-head-body">
+                  <div class="name">Margaret Chen <em>— relationship</em></div>
+                  <div class="sub">DelRosario Foundation &middot; 3 years 4 months</div>
+                </div>
+              </div>
+
+              <div class="thread-field-grid">
+                <div class="thread-field">
+                  <div class="label">Roles</div>
+                  <div class="val">Board chair &middot; <em>program committee</em> &middot; donor (prospect)</div>
+                </div>
+                <div class="thread-field">
+                  <div class="label">Last meaningful touch</div>
+                  <div class="val">92 days &mdash; coffee at Tougo, Mar 14</div>
+                </div>
+                <div class="thread-field">
+                  <div class="label">Open commitments</div>
+                  <div class="val">Program tour Q2 &middot; intro to <em>Marcus Williams</em></div>
+                </div>
+                <div class="thread-field">
+                  <div class="label">Cadence</div>
+                  <div class="val">Every 6&ndash;8 weeks &middot; cycle opens Jul 14</div>
+                </div>
+              </div>
+
+              <div class="thread-prose">
+                <em>&ldquo;Margaret moved to program committee after the Feb retreat.&rdquo;</em>
+                <span class="hl">DelRosario&rsquo;s annual cycle</span> opens in 14&nbsp;weeks. She asked for a program tour. Marcus could be the on-ramp to a deeper partnership &mdash; <em>she volunteered him</em>, which matters.
+              </div>
+
+              <div class="thread-meta-row">
+                <span class="thread-tag">→ DRAFT REACH-OUT</span>
+                <span class="thread-tag thread-tag--cyan">+ PARTNERSHIP</span>
+                <span class="thread-tag thread-tag--violet">COMMITMENT · PROGRAM TOUR</span>
+                <span class="thread-tag thread-tag--plain">SIGNAL · MOVED TO PROGRAM CMTE</span>
+              </div>
+            </div>
+
+            <div class="diff-caption" style="color:var(--amber);">One source of truth. Every role. Every thread. Every time.</div>
+          </div>
+        </div>
+
+        <!-- Condensed comparison row -->
+        <div class="diff-summary reveal">
+          <div class="diff-sum-cell">
+            <div class="who">vs Salesforce</div>
+            <div class="line">Built for <em>funnels.</em> You don&rsquo;t have one.</div>
+          </div>
+          <div class="diff-sum-cell">
+            <div class="who">vs Bloomerang</div>
+            <div class="line">Donor tools know <em>only donors.</em></div>
+          </div>
+          <div class="diff-sum-cell">
+            <div class="who">vs Notion / Asana</div>
+            <div class="line">Tickets aren&rsquo;t the unit of <em>leadership.</em></div>
+          </div>
+          <div class="diff-sum-cell">
+            <div class="who">vs Chief of Staff</div>
+            <div class="line">Gold standard. <em>$200k</em> you don&rsquo;t have.</div>
+          </div>
+          <div class="diff-sum-cell">
+            <div class="who">vs Claude / ChatGPT</div>
+            <div class="line">Brilliant intern. <em>Resets</em> every Monday.</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- DIFFERENT -->
-    <section id="different" class="section rule-top" style="background:var(--surface-alt);">
+    <!-- UNDER THE HOOD — Watch it happen -->
+    <section class="section">
       <div class="container">
-        <div class="sec-head">
-          <p class="eyebrow eyebrow--accent">Why this</p>
-          <h2>What you&rsquo;ve already tried,<br/>and why it hasn&rsquo;t worked.</h2>
+        <div class="sec-head reveal">
+          <span class="eyebrow eyebrow--violet">Under the hood</span>
+          <h2 class="h2 serif" style="font-weight:400;">
+            Watch a voice memo<br/>
+            <span class="gradient-cool">become your org.</span>
+          </h2>
+          <p class="lede-sub">
+            Every input &mdash; a voice note on a walk, an email thread, a Granola transcript &mdash; passes through an Understanding Pass that extracts first-class typed objects while preserving your prose. Nothing flattened. Nothing lost to a form field.
+          </p>
         </div>
 
-        <div class="diff">
+        <div class="parse-stage reveal">
+          <div class="parse-grid">
 
-          <div class="diff-row">
-            <div>
-              <p class="eyebrow">vs &nbsp;Salesforce · NPSP</p>
-              <h3>Built for funnels.<br/>You don&rsquo;t have a funnel.</h3>
+            <!-- LEFT: the voice memo -->
+            <div class="memo-col">
+              <div class="memo">
+                <div class="memo-head">
+                  <div class="src"><span class="src-dot"></span>Voice memo &middot; Thu 8:47 AM</div>
+                  <span class="dur">00:38</span>
+                </div>
+                <div class="memo-body">
+                  &ldquo;<span class="tok tok-touch">Had coffee with Margaret at Tougo</span>. She&rsquo;s on the program committee now &mdash; <span class="tok tok-signal">moved over after the Feb retreat</span>, feels lukewarm about Q1 metrics. <span class="tok tok-commit">She wants a program tour in Q2</span>, said <span class="tok tok-partner">Marcus Williams could introduce me to the DelRosario folks</span>. <span class="tok tok-init">Annual cycle opens July 14</span> &mdash; she&rsquo;s our opening.&rdquo;
+                </div>
+              </div>
+
+              <div style="margin-top: 18px; display:flex; align-items:center; gap:12px; font-family:'Geist Mono', monospace; font-size: 11px; color: var(--ink-muted); letter-spacing: 1.4px; text-transform: uppercase;">
+                <span style="display:inline-block; width:24px; height:1px; background:var(--amber); opacity:0.5;"></span>
+                Understanding pass
+                <span style="display:inline-block; flex:1; height:1px; background:linear-gradient(90deg, var(--amber), transparent); opacity:0.4;"></span>
+              </div>
             </div>
-            <div>
-              <p>Salesforce was built for sales teams moving opportunities through stages. You&rsquo;re not closing sales &mdash; you&rsquo;re compounding trust across many relationship types, for many years. Continuous Advancement holds partnerships, donors, program participants, alumni, board members, and peer EDs as co-equal first-class objects, not variants of <span class="mono" style="font-size:14px;">Lead</span> and <span class="mono" style="font-size:14px;">Opportunity</span>.</p>
+
+            <!-- RIGHT: extracted objects -->
+            <div class="objs-col">
+              <div class="objs">
+                <div class="obj obj--touch">
+                  <div class="obj-badge">T</div>
+                  <div class="obj-body">
+                    <div class="type">Touchpoint</div>
+                    <div class="v"><em>Coffee</em> with Margaret Chen &middot; Tougo &middot; Thu Apr&nbsp;23</div>
+                    <div class="k">→ person: Margaret&nbsp;Chen &middot; kind: in-person</div>
+                  </div>
+                </div>
+
+                <div class="obj obj--signal">
+                  <div class="obj-badge">S</div>
+                  <div class="obj-body">
+                    <div class="type">Signal</div>
+                    <div class="v">Margaret <em>moved to program committee</em> &middot; lukewarm on Q1 metrics</div>
+                    <div class="k">→ affects: board.cadence, program.priorities</div>
+                  </div>
+                </div>
+
+                <div class="obj obj--commit">
+                  <div class="obj-badge">C</div>
+                  <div class="obj-body">
+                    <div class="type">Commitment</div>
+                    <div class="v">Program tour &middot; <em>Q2</em> &middot; owner: you &middot; guest: Margaret</div>
+                    <div class="k">→ status: open &middot; due: Jun&nbsp;30</div>
+                  </div>
+                </div>
+
+                <div class="obj obj--partner">
+                  <div class="obj-badge">P</div>
+                  <div class="obj-body">
+                    <div class="type">Partnership&nbsp;candidate</div>
+                    <div class="v">DelRosario Foundation &middot; on-ramp via <em>Marcus Williams</em></div>
+                    <div class="k">→ suggested by: Margaret &middot; stage: warm intro</div>
+                  </div>
+                </div>
+
+                <div class="obj obj--init">
+                  <div class="obj-badge">I</div>
+                  <div class="obj-body">
+                    <div class="type">Initiative&nbsp;/&nbsp;window</div>
+                    <div class="v">DelRosario annual cycle <em>opens Jul&nbsp;14</em></div>
+                    <div class="k">→ 12-week runway &middot; pulse priority: rising</div>
+                  </div>
+                </div>
+              </div>
             </div>
+
           </div>
 
-          <div class="diff-row">
-            <div>
-              <p class="eyebrow">vs &nbsp;Bloomerang · LGL · RE</p>
-              <h3>Donor tools know<br/>only donors.</h3>
+          <!-- Legend -->
+          <div class="objmodel">
+            <div class="objmodel-head">
+              <h4>Twelve <em>first-class</em> objects built for the shape of mission-driven leadership.</h4>
+              <div class="objmodel-legend">
+                <span class="sw sw--now"><span class="box"></span>In v0.1</span>
+                <span class="sw sw--later"><span class="box"></span>On the roadmap</span>
+              </div>
             </div>
-            <div>
-              <p>Donor CRMs track donor relationships. You manage donors, partners, staff, corps members, program participants, and board members in the same hour &mdash; often in the same email. Continuous Advancement treats each as a first-class relationship with its own cadence, not as rows in a Donor table.</p>
-            </div>
-          </div>
-
-          <div class="diff-row">
-            <div>
-              <p class="eyebrow">vs &nbsp;Notion · Asana · Monday</p>
-              <h3>Tickets aren&rsquo;t<br/>the unit of leadership.</h3>
-            </div>
-            <div>
-              <p>These are coordination tools for teams doing repeatable work. You do non-repeatable work: unique relationships, unique commitments, unique signals. Continuous Advancement is structured around prose and commitments, not tickets and stages &mdash; because the unit of your work is a <i>thread</i>, not a <i>task</i>.</p>
-            </div>
-          </div>
-
-          <div class="diff-row">
-            <div>
-              <p class="eyebrow">vs &nbsp;A chief of staff</p>
-              <h3>Extraordinary &mdash;<br/>and $200k you don&rsquo;t have.</h3>
-            </div>
-            <div>
-              <p>A chief of staff is the gold standard. You cannot afford one &mdash; most mission-driven orgs your size can&rsquo;t. Continuous Advancement is the working memory of a chief of staff &mdash; the tracking, the surfacing, the drafting &mdash; at roughly 2% of the cost. It does not replace human judgment. It protects your judgment from getting lost in tabs.</p>
-            </div>
-          </div>
-
-          <div class="diff-row">
-            <div>
-              <p class="eyebrow">vs &nbsp;Claude · ChatGPT · Gemini</p>
-              <h3>A brilliant intern<br/>who resets every Monday.</h3>
-            </div>
-            <div>
-              <p>A chat assistant is stateless. It forgets the partner you mentioned last week, the commitment you made in February, the thread that&rsquo;s gone quiet. Continuous Advancement is a second brain with durable memory, structured around how an ED actually leads &mdash; with the same model power underneath, in a container that doesn&rsquo;t reset.</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- OBJECT MODEL -->
-    <section class="section rule-top">
-      <div class="container">
-        <div class="sec-head">
-          <p class="eyebrow eyebrow--terra">Under the hood</p>
-          <h2>A vertical object model,<br/>not a generic table.</h2>
-        </div>
-
-        <div class="under-grid">
-          <div>
-            <p>Continuous Advancement is built on a set of first-class typed objects that match the real shape of mission-driven leadership. Each object has typed fields and a prose layer.</p>
-            <div class="object-chips">
-              <span class="chip chip--accent">Person</span>
-              <span class="chip chip--accent">Partnership</span>
-              <span class="chip chip--accent">Commitment</span>
-              <span class="chip chip--accent">Initiative</span>
-              <span class="chip chip--accent">Touchpoint</span>
+            <div class="chips">
+              <span class="chip chip--amber">Person</span>
+              <span class="chip chip--amber">Partnership</span>
+              <span class="chip chip--amber">Commitment</span>
+              <span class="chip chip--amber">Initiative</span>
+              <span class="chip chip--amber">Touchpoint</span>
               <span class="chip">Donor</span>
               <span class="chip">Corps&nbsp;Member</span>
               <span class="chip">Alumni</span>
               <span class="chip">Board&nbsp;Member</span>
               <span class="chip">Program&nbsp;Site</span>
               <span class="chip">Outcome</span>
+              <span class="chip">Signal</span>
             </div>
-            <p>Every input &mdash; voice memo, email, meeting transcript &mdash; passes through an understanding pass that extracts structured data while preserving the prose. Nothing is flattened. Nothing is lost to a form field. The AI layer reads your inputs, your history, and your cadences, and proposes actions. You approve. Nothing sends without your hand on it.</p>
           </div>
+        </div>
 
-          <div>
-            <dl class="specs">
-              <div>
-                <dt><span class="eyebrow">AI layer</span></dt>
-                <dd>Claude (Anthropic) powers understanding, ranking, and drafting. Prompts are versioned. Outputs are testable. When the model improves, your system sharpens.</dd>
-              </div>
-              <div>
-                <dt><span class="eyebrow">Your data, your database</span></dt>
-                <dd>Per-tenant Postgres with row-level security. Exportable to your own Obsidian vault if you want a personal-portability copy. No training of third-party models on your data.</dd>
-              </div>
-              <div>
-                <dt><span class="eyebrow">Integrations as bridges</span></dt>
-                <dd>Outlook, Gmail, Granola, Google Drive, Slack via MCP bridges. Add or remove any integration without breaking the core.</dd>
-              </div>
-              <div>
-                <dt><span class="eyebrow">Drafts, not autonomy</span></dt>
-                <dd>The system proposes. You decide. No email sends, no donor moves, no board packet ships without an explicit human pass.</dd>
-              </div>
-            </dl>
+        <!-- Platform specs as a compact 4-up -->
+        <div class="parse-specs reveal">
+          <div class="parse-spec">
+            <span class="eyebrow">AI layer</span>
+            <p>Claude powers understanding, ranking, and drafting. Prompts versioned, outputs testable. When the model sharpens, your system sharpens.</p>
+          </div>
+          <div class="parse-spec">
+            <span class="eyebrow eyebrow--cyan">Your data, your DB</span>
+            <p>Per-tenant Postgres with row-level security. Exportable to your own Obsidian vault. No training on your data.</p>
+          </div>
+          <div class="parse-spec">
+            <span class="eyebrow eyebrow--violet">Integrations as bridges</span>
+            <p>Outlook, Gmail, Granola, Drive, Slack via MCP bridges. Add or remove any bridge without breaking the core.</p>
+          </div>
+          <div class="parse-spec">
+            <span class="eyebrow">Drafts, not autonomy</span>
+            <p>The system proposes. You decide. No email sends, no donor moves, no board packet ships without your hand on it.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- WHO IT'S FOR -->
-    <section class="for section rule-top">
+    <section class="section for-sec">
       <div class="container">
-        <p class="eyebrow">Who it&rsquo;s for</p>
-        <h2 class="display" style="margin-top:14px; font-size:clamp(34px,4.4vw,58px); max-width:1000px;">
-          Executive directors of mission-driven organizations, roughly 5&ndash;50 staff and $500K&ndash;$20M in budget.
-        </h2>
-        <div class="shape-grid">
-          <div>
-            <p style="font-size:17px; line-height:1.7;">You probably &mdash;</p>
-            <ul>
-              <li>Report to a board and carry significant development responsibility yourself.</li>
-              <li>Hold 8&ndash;15 active partner or funder relationships personally.</li>
-              <li>Have 3&ndash;10 direct reports and a functional leadership team.</li>
-              <li>Feel the pull between <i>operate the org</i> and <i>represent the org</i> every week.</li>
-            </ul>
-          </div>
-          <div style="padding-left:0; border-left:none;">
-            <p style="font-size:17px; line-height:1.7;">We are starting with Washington state executive directors, because this is the community we know &mdash; and because depth of pilot relationship matters more to us than breadth of early signup.</p>
-            <p style="margin-top:20px; font-size:17px; line-height:1.7;">If the shape of your job looks like what we&rsquo;ve described, we&rsquo;d like to talk. The first ten EDs we work with will shape what this becomes.</p>
-          </div>
+        <div class="sec-head reveal">
+          <span class="eyebrow">Who this is for</span>
+          <h2 class="h2 serif" style="font-weight:400;">
+            Executive directors of mission-driven organizations,<br/>
+            <i style="color:var(--amber);">roughly 5&ndash;50 staff</i> and $500K&ndash;$20M in budget.
+          </h2>
         </div>
+
+        <ul class="you-list reveal">
+          <li data-num="01">Report to a board and carry significant <em>development</em> responsibility yourself.</li>
+          <li data-num="02">Hold 8&ndash;15 active <em>partner</em> or funder relationships personally.</li>
+          <li data-num="03">Have 3&ndash;10 direct reports and a functional <em>leadership team.</em></li>
+          <li data-num="04">Feel the pull between <em>operate the org</em> and <em>represent the org</em> every week.</li>
+          <li data-num="05">Have tried a CRM, a notebook, a donor tool, and ChatGPT &mdash; and <em>none of it fits.</em></li>
+        </ul>
+
+        <p class="lede-sub reveal" style="margin-top:44px; max-width:640px;">We&rsquo;re starting with Washington state executive directors, because this is the community we know &mdash; and because depth of pilot relationship matters more to us than breadth of early signup. The first ten EDs we work with will shape what this becomes.</p>
       </div>
     </section>
 
     <!-- PRICING -->
-    <section id="pricing" class="section rule-top">
+    <section class="section" id="pricing">
       <div class="container">
-        <div class="sec-head">
-          <p class="eyebrow eyebrow--accent">Pricing</p>
-          <h2>Priced for the budget<br/>a nonprofit actually has.</h2>
+        <div class="sec-head reveal">
+          <span class="eyebrow eyebrow--cyan">Pricing</span>
+          <h2 class="h2 serif" style="font-weight:400;">
+            Priced for the budget<br/>
+            <span class="gradient-text">a nonprofit actually has.</span>
+          </h2>
         </div>
 
-        <div class="tiers">
+        <div class="tiers reveal">
           <div class="tier">
-            <p class="eyebrow">Founding ED</p>
-            <p class="price">$250<small>&thinsp;/&thinsp;mo</small></p>
-            <p class="desc">Single executive director.</p>
+            <h4>Founding ED</h4>
+            <div class="price">$250<small>/mo</small></div>
+            <p class="desc">Single executive director. The essential shape.</p>
             <ul>
               <li>Partnerships · Development · Program</li>
-              <li>Inbox, Pulse, Threads</li>
+              <li>Inbox · Pulse · Threads</li>
               <li>Outlook + Granola + Drive</li>
               <li>Priority pilot onboarding</li>
             </ul>
           </div>
 
-          <div class="tier tier--featured">
-            <span class="badge">RECOMMENDED</span>
-            <p class="eyebrow">Team</p>
-            <p class="price">$500<small>&thinsp;/&thinsp;mo</small></p>
-            <p class="desc">ED plus two &mdash; e.g. development director and board chair.</p>
+          <div class="tier tier--feature">
+            <span class="tier-badge">RECOMMENDED</span>
+            <h4>Team</h4>
+            <div class="price">$500<small>/mo</small></div>
+            <p class="desc">ED plus two &mdash; development director, board chair.</p>
             <ul>
               <li>Everything in Founding ED</li>
               <li>Full object model &mdash; Board, Alumni, Corps</li>
               <li>Shared Threads with permissioning</li>
-              <li>Quarterly strategy review</li>
+              <li>Quarterly strategy review with our team</li>
             </ul>
           </div>
 
           <div class="tier">
-            <p class="eyebrow">Multi-site</p>
-            <p class="price">Custom</p>
-            <p class="desc">Regional or national organizations.</p>
+            <h4>Multi-site</h4>
+            <div class="price">Custom</div>
+            <p class="desc">Regional or national organizations with multiple sites.</p>
             <ul>
               <li>Cross-site signal aggregation</li>
               <li>National director dashboards</li>
@@ -879,23 +2066,42 @@
           </div>
         </div>
 
-        <div class="context-row">
-          <div><p class="big">$150&ndash;250k</p><p class="sub">A human chief of staff, per year</p></div>
-          <div><p class="big">$60&thinsp;/&thinsp;user</p><p class="sub">Salesforce NPSP + implementation</p></div>
-          <div><p class="big">$99&ndash;499</p><p class="sub">Bloomerang &mdash; donors only</p></div>
-          <div><p class="big em">$250&ndash;500</p><p class="sub">Continuous Advancement &mdash; the whole job</p></div>
+        <div class="context reveal">
+          <div class="context-cell">
+            <div class="label">A chief of staff</div>
+            <div class="v">$150&ndash;250k<span style="font-size:13px; color:var(--ink-muted);">/yr</span></div>
+            <div class="sub">Out of reach for most mission orgs.</div>
+          </div>
+          <div class="context-cell">
+            <div class="label">Salesforce NPSP</div>
+            <div class="v">$60<span style="font-size:13px; color:var(--ink-muted);">/seat/mo</span></div>
+            <div class="sub">Plus implementation, admin, consultants.</div>
+          </div>
+          <div class="context-cell">
+            <div class="label">Bloomerang</div>
+            <div class="v">$99&ndash;499<span style="font-size:13px; color:var(--ink-muted);">/mo</span></div>
+            <div class="sub">Donors only. No partnerships, no program.</div>
+          </div>
+          <div class="context-cell em">
+            <div class="label">Continuous Advancement</div>
+            <div class="v">$250&ndash;500<span style="font-size:13px; color:var(--ink-muted);">/mo</span></div>
+            <div class="sub">The whole shape of your job.</div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- FAQ -->
-    <section class="section rule-top">
+    <section class="section">
       <div class="container">
-        <div class="sec-head">
-          <p class="eyebrow eyebrow--terra">Common questions</p>
-          <h2>The things EDs ask us first.</h2>
+        <div class="sec-head reveal">
+          <span class="eyebrow">Common questions</span>
+          <h2 class="h2 serif" style="font-weight:400;">
+            The things EDs<br/>ask us first.
+          </h2>
         </div>
-        <div class="faq-grid">
+
+        <div class="faqs reveal">
           <div class="faq">
             <q>Do I have to migrate off my current CRM?</q>
             <p>No. We import what we can and coexist with what you already run. Continuous Advancement is the layer above your tools, not a replacement for the ones that work.</p>
@@ -906,67 +2112,128 @@
           </div>
           <div class="faq">
             <q>What if the AI gets it wrong?</q>
-            <p>Every AI-generated action is a draft. You approve before anything sends. The system is designed to fail visibly, not silently.</p>
-          </div>
-          <div class="faq">
-            <q>Can my board see this?</q>
-            <p>Only the parts you choose to share. Board threads and board-member profiles are first-class &mdash; you can expose a one-page prose packet or keep everything to yourself.</p>
+            <p>Every AI-generated action is a draft. You approve before anything sends. The system is designed to fail visibly, not silently &mdash; and every extraction is reversible.</p>
           </div>
           <div class="faq">
             <q>How is this different from just using Claude better?</q>
             <p>Claude is a model. Continuous Advancement is memory, structure, and cadence wrapped around that model &mdash; so the power doesn&rsquo;t evaporate between sessions, and so the shape of your job (not a generic chat window) is what the AI sees.</p>
           </div>
           <div class="faq">
-            <q>What&rsquo;s the smallest org you serve?</q>
-            <p>An ED and a laptop. We built this because leading a 10-person mission-driven org is just as cognitively expensive as leading a 200-person one &mdash; with fewer people to hand things to.</p>
+            <q>Can my board see this?</q>
+            <p>Only the parts you share. Board threads and board-member profiles are first-class &mdash; you can expose a one-page prose packet or keep everything to yourself.</p>
+          </div>
+          <div class="faq">
+            <q>When does it actually ship?</q>
+            <p>Partnership slice ships to the first ten WA EDs in summer 2026. Development and Program slices follow in late 2026 and early 2027. By 2028 the full object model is live nationally.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- FINAL CTA -->
-    <section id="cta" class="section rule-top cta-final">
-      <div class="container">
-        <p class="eyebrow eyebrow--accent">The ask is simple</p>
-        <h2 class="display" style="margin-top:18px;">
-          If this is your job,<br/><i>we&rsquo;d like to talk.</i>
+    <section class="section cta-sec" id="cta">
+      <div class="container" style="position:relative; z-index:1;">
+        <span class="eyebrow eyebrow--plain" style="color:var(--amber); letter-spacing:0.18em;">The ask is simple</span>
+        <h2 class="h2 serif" style="font-weight:400; margin-top:18px;">
+          If this is your job,<br/>
+          <i class="gradient-text">we&rsquo;d like to talk.</i>
         </h2>
         <p>Ten executive directors will shape what Continuous Advancement becomes. If you&rsquo;ve been trying to hold the whole shape of a mission-driven organization and it&rsquo;s getting harder, not easier &mdash; write to us.</p>
-        <div class="btn-row">
-          <a href="mailto:hello@continuousadvancement.com?subject=Early%20access%20%E2%80%94%20Continuous%20Advancement" class="btn btn-accent btn-lg">
+        <div class="actions">
+          <a href="mailto:hello@continuousadvancement.com?subject=Early%20access%20%E2%80%94%20Continuous%20Advancement" class="btn btn-primary btn-lg">
             hello@continuousadvancement.com
-            <svg viewBox="0 0 14 14" fill="none"><path d="M1 7h12m0 0L8 2m5 5l-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <svg viewBox="0 0 14 14" fill="none"><path d="M1 7h12m0 0L8 2m5 5l-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
           </a>
-          <a href="#top" class="text-link">Read the thesis again</a>
+          <a class="btn btn-lg" href="#top">Read the thesis again</a>
         </div>
-        <p class="meta">
-          Pilot waves open May 2026 <span class="muted">·</span> Washington state first <span class="muted">·</span> nationwide by 2027.
-        </p>
+        <p class="meta">Pilot waves · May 2026 · Washington first · Nationwide by 2027</p>
       </div>
     </section>
 
     <!-- FOOTER -->
     <footer class="foot">
       <div class="container foot-row">
-        <div>
-          <a href="#top" class="brand">
-            <span class="brand-mark" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 22 22" fill="none">
-                <circle cx="11" cy="11" r="9.25" stroke="#241f18" stroke-width="1.25"/>
-                <path d="M4.5 11 L11 4.5 L17.5 11 L11 17.5 Z" stroke="#4263eb" stroke-width="1.25" fill="none"/>
-              </svg>
-            </span>
-            <span class="brand-name">Continuous <em>Advancement</em></span>
-          </a>
-          <p style="margin-top:12px; font-size:13.5px; color:var(--ink-muted); max-width:440px;">Built in Washington. For executive directors who carry everything.</p>
-        </div>
+        <a href="#top" class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="ca-trail-foot" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#e5b776" stop-opacity="0"/>
+                  <stop offset="45%" stop-color="#e5b776" stop-opacity="0.55"/>
+                  <stop offset="100%" stop-color="#f2cd96" stop-opacity="1"/>
+                </linearGradient>
+                <radialGradient id="ca-tip-foot" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#fff3d9"/>
+                  <stop offset="60%" stop-color="#f2cd96"/>
+                  <stop offset="100%" stop-color="#e5b776"/>
+                </radialGradient>
+              </defs>
+              <circle cx="20" cy="20" r="14" stroke="#e5b776" stroke-width="1" fill="none" opacity="0.2"/>
+              <path d="M 6 20 A 14 14 0 0 1 30 10" stroke="url(#ca-trail-foot)" stroke-width="2.1" fill="none" stroke-linecap="round"/>
+              <circle cx="20" cy="20" r="1.6" fill="#e5b776" opacity="0.6"/>
+              <circle cx="30" cy="10" r="3" fill="url(#ca-tip-foot)"/>
+            </svg>
+          </span>
+          <span class="brand-name">Continuous<em>Advancement</em></span>
+        </a>
         <div class="foot-meta">
           <a href="mailto:hello@continuousadvancement.com">hello@continuousadvancement.com</a>
+          <span>Built in Washington</span>
           <span>© 2026 Continuous Advancement LLC</span>
         </div>
       </div>
     </footer>
 
   </main>
+
+  <script>
+    // Cinematic intro — fires on first load
+    (function(){
+      // Enable intro class immediately so CSS animations play on first paint
+      document.documentElement.classList.add('js-intro');
+      // After animations complete, strip the class so re-interactions don't replay
+      window.addEventListener('load', () => {
+        setTimeout(() => document.documentElement.classList.remove('js-intro'), 2600);
+      });
+    })();
+
+    // Subtle scroll reveals
+    (function(){
+      if (!('IntersectionObserver' in window)) {
+        document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            io.unobserve(e.target);
+          }
+        }
+      }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    })();
+
+    // Subtle mouse-parallax on hero glows
+    (function(){
+      const atmos = document.querySelector('.hero-atmos');
+      if (!atmos) return;
+      const glows = atmos.querySelectorAll('.glow');
+      const hero  = document.querySelector('.hero');
+      let raf;
+      hero.addEventListener('pointermove', (e) => {
+        if (raf) cancelAnimationFrame(raf);
+        const r = hero.getBoundingClientRect();
+        const px = ((e.clientX - r.left) / r.width  - 0.5) * 2;
+        const py = ((e.clientY - r.top)  / r.height - 0.5) * 2;
+        raf = requestAnimationFrame(() => {
+          glows.forEach((g, i) => {
+            const s = (i + 1) * 8;
+            g.style.transform = `translate(${px * s}px, ${py * s}px) scale(1.02)`;
+          });
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

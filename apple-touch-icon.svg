@@ -1,0 +1,26 @@
+<svg width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0b12"/>
+      <stop offset="100%" stop-color="#06070c"/>
+    </linearGradient>
+    <linearGradient id="trail" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e5b776" stop-opacity="0"/>
+      <stop offset="45%" stop-color="#e5b776" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#f2cd96" stop-opacity="1"/>
+    </linearGradient>
+    <radialGradient id="tip" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff3d9"/>
+      <stop offset="55%" stop-color="#f2cd96"/>
+      <stop offset="100%" stop-color="#e5b776"/>
+    </radialGradient>
+  </defs>
+  <rect width="180" height="180" rx="40" fill="url(#bg)"/>
+  <g transform="translate(90, 90)">
+    <circle r="58" stroke="#e5b776" stroke-width="2" fill="none" opacity="0.22"/>
+    <path d="M -58 0 A 58 58 0 0 1 41 -41" stroke="url(#trail)" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <circle r="6" fill="#e5b776" opacity="0.6"/>
+    <circle cx="41" cy="-41" r="13" fill="url(#tip)"/>
+    <circle cx="41" cy="-41" r="22" fill="#e5b776" opacity="0.22"/>
+  </g>
+</svg>
