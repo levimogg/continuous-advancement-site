@@ -32,7 +32,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <style>
   /* ============================================================
@@ -41,19 +41,19 @@
      ============================================================ */
 
   :root {
-    --bg-deep:       #06070c;
-    --bg:            #0a0b12;
-    --bg-raised:     #11131d;
+    --bg-deep:       #08070a;
+    --bg:            #0c0a0d;
+    --bg-raised:     #13100f;
     --bg-glass:      rgba(255,255,255,0.035);
     --bg-glass-warm: rgba(229,183,118,0.04);
     --border:        rgba(255,255,255,0.08);
     --border-strong: rgba(255,255,255,0.14);
     --border-warm:   rgba(229,183,118,0.18);
 
-    --ink:        #f5efdf;
-    --ink-dim:    #c9c4b6;
-    --ink-muted:  #8a8a93;
-    --ink-faint:  #54545c;
+    --ink:        #f3ead2;
+    --ink-dim:    #ccc3aa;
+    --ink-muted:  #94877a;
+    --ink-faint:  #54504a;
 
     --amber:       #e5b776;
     --amber-hi:    #f2cd96;
@@ -86,10 +86,9 @@
   body {
     background: var(--bg);
     color: var(--ink);
-    font-family: 'Geist', ui-sans-serif, -apple-system, system-ui, sans-serif;
-    font-feature-settings: "ss01", "ss02", "cv11";
-    font-size: 16px; line-height: 1.55;
-    letter-spacing: -0.005em;
+    font-family: 'Instrument Sans', ui-sans-serif, -apple-system, system-ui, sans-serif;
+    font-size: 16px; line-height: 1.58;
+    letter-spacing: -0.002em;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
@@ -117,29 +116,44 @@
   .section--tight { padding: clamp(56px, 8vw, 100px) 0; }
 
   /* ─── TYPE ──────────────────────────────────────────────────── */
+  /* Warm, considered pairing — Instrument Serif for display, Instrument Sans for body.
+     These are Anthropic's own foundry fonts: Claude-adjacent, literary, human. */
+  .display {
+    font-family: 'Instrument Serif', 'Tiempos', Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    line-height: 1.02;
+  }
+  .display i, .display em {
+    font-style: italic; font-weight: 400;
+    color: var(--amber);
+  }
+
   .serif { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; letter-spacing: -0.015em; }
   .serif i, .serif em { font-style: italic; }
-  .mono  { font-family: 'Geist Mono', ui-monospace, monospace; }
+  .sans  { font-family: 'Instrument Sans', ui-sans-serif, sans-serif; }
+  .mono  { font-family: 'Geist Mono', ui-monospace, monospace; letter-spacing: 0; font-variant-numeric: tabular-nums; }
 
   .eyebrow {
     font-family: 'Geist Mono', ui-monospace, monospace;
-    font-size: 11.5px; font-weight: 500;
-    letter-spacing: 0.16em; text-transform: uppercase;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
     color: var(--ink-muted);
     display: inline-flex; align-items: center; gap: 8px;
   }
   .eyebrow::before {
-    content: ''; width: 6px; height: 6px; border-radius: 50%;
-    background: var(--amber); box-shadow: 0 0 12px var(--amber-glow);
+    content: ''; width: 5px; height: 5px; border-radius: 50%;
+    background: var(--amber); box-shadow: 0 0 10px var(--amber-glow);
   }
-  .eyebrow--cyan::before   { background: var(--cyan);   box-shadow: 0 0 12px var(--cyan-glow); }
-  .eyebrow--violet::before { background: var(--violet); box-shadow: 0 0 12px var(--violet-glow); }
+  .eyebrow--cyan::before   { background: var(--cyan);   box-shadow: 0 0 10px var(--cyan-glow); }
+  .eyebrow--violet::before { background: var(--violet); box-shadow: 0 0 10px var(--violet-glow); }
   .eyebrow--plain::before  { display: none; }
 
-  h1, h2, h3 { font-weight: 500; letter-spacing: -0.035em; line-height: 1.02; }
-  .h1 { font-size: clamp(52px, 9.5vw, 128px); }
-  .h2 { font-size: clamp(40px, 6.5vw, 88px); letter-spacing: -0.032em; line-height: 1.03; }
-  .h3 { font-size: clamp(26px, 3vw, 40px); letter-spacing: -0.02em; line-height: 1.1; }
+  h1, h2, h3 { font-weight: 400; letter-spacing: -0.02em; line-height: 1.06; }
+  .h1 { font-size: clamp(52px, 8.8vw, 112px); line-height: 1; letter-spacing: -0.022em; }
+  .h2 { font-size: clamp(38px, 5.4vw, 68px); letter-spacing: -0.02em; line-height: 1.06; }
+  .h3 { font-size: clamp(26px, 3vw, 38px); letter-spacing: -0.015em; line-height: 1.12; }
 
   .gradient-text {
     background: linear-gradient(135deg, #ffffff 0%, #f5efdf 40%, var(--amber) 100%);
@@ -191,7 +205,7 @@
     display: flex; align-items: center; justify-content: space-between;
     padding: 18px 0;
   }
-  .brand { display: inline-flex; align-items: center; gap: 12px; font-family: 'Geist', sans-serif; }
+  .brand { display: inline-flex; align-items: center; gap: 12px; font-family: 'Instrument Sans', sans-serif; }
   .brand-mark {
     width: 32px; height: 32px; border-radius: 9px;
     display: grid; place-items: center;
@@ -854,8 +868,8 @@
     border-bottom: 1px dashed var(--border);
   }
   .diff-panel-head h3 {
-    font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 24px;
-    letter-spacing: -0.01em; color: var(--ink);
+    font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 24px;
+    letter-spacing: -0.015em; color: var(--ink); line-height: 1.15;
   }
   .diff-panel-head h3 em { font-style: italic; }
   .diff-panel--left .diff-panel-head h3 em { color: var(--rose); }
@@ -893,8 +907,9 @@
   .frag-mismatch {
     margin-top: 10px; padding-top: 10px;
     border-top: 1px dashed rgba(244,138,160,0.25);
-    font-size: 11px; color: var(--rose); font-style: italic;
-    font-family: 'Instrument Serif', serif; letter-spacing: 0;
+    font-size: 13px; color: var(--rose); line-height: 1.45;
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic; letter-spacing: -0.005em;
   }
   .frag-field-empty { color: var(--ink-faint); font-family: 'Geist Mono', monospace; font-size: 11px; }
   .frag-stage {
@@ -1026,9 +1041,13 @@
     color: var(--amber); text-transform: uppercase; margin-bottom: 8px;
   }
   .diff-sum-cell .line {
-    font-family: 'Instrument Serif', serif; font-size: 17px; line-height: 1.35; color: var(--ink);
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 18px; line-height: 1.35; color: var(--ink);
+    letter-spacing: -0.012em;
   }
-  .diff-sum-cell .line em { font-style: italic; color: var(--amber); }
+  .diff-sum-cell .line em {
+    font-style: italic; color: var(--amber);
+  }
 
   /* ============================================================
      SECTION: WATCH IT HAPPEN (replaces under-the-hood)
@@ -1338,7 +1357,7 @@
       <div class="container">
         <div class="sec-head reveal">
           <span class="eyebrow">Tuesday · 7:42 AM</span>
-          <h2 class="h2 serif" style="font-weight:400;">
+          <h2 class="h2 display">
             You hold down the button<br/>and talk for three minutes.<br/>
             <i style="color:var(--amber);">By the time you park,</i>
             <span class="gradient-text">it&rsquo;s done.</span>
@@ -1406,7 +1425,7 @@
       <div class="container">
         <div class="sec-head reveal">
           <span class="eyebrow eyebrow--cyan">The shape of the job</span>
-          <h2 class="h2 serif" style="font-weight:400;">
+          <h2 class="h2 display">
             You don&rsquo;t have <i>a funnel.</i><br/>
             You have <span class="gradient-cool">five axes</span><br/>
             that compound over years.
@@ -1456,7 +1475,7 @@
             <text x="280" y="297" text-anchor="middle" fill="#1a1407" font-family="Geist Mono" font-size="9" letter-spacing="0.14em" opacity="0.8">TRUST&nbsp;LAYER</text>
 
             <!-- nodes -->
-            <g font-family="Geist" font-size="13" font-weight="500" fill="#f5efdf">
+            <g font-family="Instrument Sans" font-size="13" font-weight="500" fill="#f3ead2">
               <circle cx="280" cy="70"  r="40" fill="url(#nodeGrad)" stroke="#e5b776" stroke-opacity="0.35" stroke-width="1"/>
               <text x="280" y="67" text-anchor="middle">Partner-</text>
               <text x="280" y="82" text-anchor="middle">ships</text>
@@ -1515,7 +1534,7 @@
       <div class="container">
         <div class="sec-head reveal">
           <span class="eyebrow">The product</span>
-          <h2 class="h2 serif" style="font-weight:400;">
+          <h2 class="h2 display">
             Three surfaces.<br/>
             <span class="gradient-text">Built for how you<br/>actually work.</span>
           </h2>
@@ -1702,7 +1721,7 @@
       <div class="container">
         <div class="sec-head reveal">
           <span class="eyebrow">See the difference</span>
-          <h2 class="h2 serif" style="font-weight:400;">
+          <h2 class="h2 display">
             One&nbsp;person.<br/>
             <i style="color:var(--amber);">Everywhere, and nowhere.</i>
           </h2>
@@ -1862,7 +1881,7 @@
       <div class="container">
         <div class="sec-head reveal">
           <span class="eyebrow eyebrow--violet">Under the hood</span>
-          <h2 class="h2 serif" style="font-weight:400;">
+          <h2 class="h2 display">
             Watch a voice memo<br/>
             <span class="gradient-cool">become your org.</span>
           </h2>
@@ -1998,7 +2017,7 @@
       <div class="container">
         <div class="sec-head reveal">
           <span class="eyebrow">Who this is for</span>
-          <h2 class="h2 serif" style="font-weight:400;">
+          <h2 class="h2 display">
             Executive directors of mission-driven organizations,<br/>
             <i style="color:var(--amber);">roughly 5&ndash;50 staff</i> and $500K&ndash;$20M in budget.
           </h2>
@@ -2021,7 +2040,7 @@
       <div class="container">
         <div class="sec-head reveal">
           <span class="eyebrow eyebrow--cyan">Pricing</span>
-          <h2 class="h2 serif" style="font-weight:400;">
+          <h2 class="h2 display">
             Priced for the budget<br/>
             <span class="gradient-text">a nonprofit actually has.</span>
           </h2>
@@ -2096,7 +2115,7 @@
       <div class="container">
         <div class="sec-head reveal">
           <span class="eyebrow">Common questions</span>
-          <h2 class="h2 serif" style="font-weight:400;">
+          <h2 class="h2 display">
             The things EDs<br/>ask us first.
           </h2>
         </div>
@@ -2134,7 +2153,7 @@
     <section class="section cta-sec" id="cta">
       <div class="container" style="position:relative; z-index:1;">
         <span class="eyebrow eyebrow--plain" style="color:var(--amber); letter-spacing:0.18em;">The ask is simple</span>
-        <h2 class="h2 serif" style="font-weight:400; margin-top:18px;">
+        <h2 class="h2 display" style="margin-top:18px;">
           If this is your job,<br/>
           <i class="gradient-text">we&rsquo;d like to talk.</i>
         </h2>

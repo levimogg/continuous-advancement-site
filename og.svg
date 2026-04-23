@@ -57,7 +57,7 @@
   </g>
 
   <!-- Wordmark next to brand mark -->
-  <text x="170" y="124" font-family="Geist, sans-serif" font-size="22" font-weight="500" fill="#f5efdf" letter-spacing="-0.3">Continuous</text>
+  <text x="170" y="124" font-family="Instrument Sans, sans-serif" font-size="22" font-weight="500" fill="#f3ead2" letter-spacing="-0.3">Continuous</text>
   <text x="292" y="124" font-family="Instrument Serif, Georgia, serif" font-size="26" font-style="italic" fill="#e5b776">Advancement</text>
 
   <!-- Eyebrow -->
@@ -68,7 +68,7 @@
   <text x="78" y="430" font-family="Instrument Serif, Georgia, serif" font-size="88" font-weight="400" fill="url(#headline-grad)" letter-spacing="-1.5">remembered <tspan font-style="italic" fill="#e5b776">you back?</tspan></text>
 
   <!-- Sub-lede -->
-  <text x="78" y="510" font-family="Geist, sans-serif" font-size="22" fill="#c9c4b6" letter-spacing="-0.3">A second brain for the leaders who hold everything.</text>
+  <text x="78" y="510" font-family="Instrument Sans, sans-serif" font-size="22" fill="#ccc3aa" letter-spacing="-0.3">A second brain for the leaders who hold everything.</text>
 
   <!-- Tag chips -->
   <g transform="translate(78, 548)">
